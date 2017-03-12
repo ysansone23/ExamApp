@@ -62,8 +62,8 @@ public class ExamWebViewActivity extends AppCompatActivity {
                 }
 
                     @Override
-                    public void onReceivedError() {
-                        showErrorScreen();
+                    public void onReceivedError(boolean isNetworkingError) {
+                        showErrorScreen(isNetworkingError);
                     }
                 }));
             webView.getSettings().setUseWideViewPort(true);
@@ -73,7 +73,7 @@ public class ExamWebViewActivity extends AppCompatActivity {
         }
     }
 
-    private void showErrorScreen() {
+    private void showErrorScreen(final boolean isNetworkingError) {
         progressBar.setVisibility(View.GONE);
         textView.setVisibility(View.GONE);
 
@@ -93,7 +93,7 @@ public class ExamWebViewActivity extends AppCompatActivity {
         };
 
         final EvaluatedErrorView errorView = new EvaluatedErrorView(this);
-        errorView.setUpView(errorViewActions);
+        errorView.setUpView(errorViewActions, isNetworkingError);
 
         errorViewContainer = (ViewGroup) findViewById(R.id.evaluated_error_view_container);
         errorViewContainer.setVisibility(View.VISIBLE);

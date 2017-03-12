@@ -1,6 +1,8 @@
 package com.uade.tesis.evaluated.utils;
 
+import android.annotation.TargetApi;
 import android.graphics.Bitmap;
+import android.os.Build;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -33,13 +35,22 @@ public class EvaluatedWebViewClient extends android.webkit.WebViewClient {
     @Override
     public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
         super.onReceivedError(view, errorCode, description, failingUrl);
-        actions.onReceivedError();
+        if (errorCode == ERROR_HOST_LOOKUP) {
+            actions.onReceivedError(true);
+        } else {
+            actions.onReceivedError(false);
+        }
     }
 
+    @TargetApi(Build.VERSION_CODES.M)
     @Override
     public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
         super.onReceivedError(view, request, error);
-        actions.onReceivedError();
+        if (error.getErrorCode() == ERROR_HOST_LOOKUP) {
+            actions.onReceivedError(true);
+        } else {
+            actions.onReceivedError(false);
+        }
     }
 
     private void animate(final WebView view) {
@@ -54,6 +65,6 @@ public class EvaluatedWebViewClient extends android.webkit.WebViewClient {
 
         void onPageStarted();
 
-        void onReceivedError();
+        void onReceivedError(boolean isNetworkingError);
     }
 }
