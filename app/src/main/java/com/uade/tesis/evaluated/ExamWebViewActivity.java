@@ -87,7 +87,8 @@ public class ExamWebViewActivity extends AppCompatActivity {
 
             @Override
             public void scanAnother() {
-                //TODO mostrar la pantalla de scan de nuevo
+                startActivity(DecoderActivity.getIntent(ExamWebViewActivity.this));
+                finish();
             }
         };
 

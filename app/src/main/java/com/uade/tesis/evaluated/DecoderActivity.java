@@ -40,8 +40,6 @@ public class DecoderActivity extends Activity implements QRCodeReaderView.OnQRCo
 
         // Use this function to set back camera preview
         qrCodeReaderView.setBackCamera();
-
-//        qrCodeReaderView.checkCameraHardware();
     }
 
     // Called when a QR is decoded

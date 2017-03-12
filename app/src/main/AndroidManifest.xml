@@ -22,10 +22,14 @@
         </activity>
 
         <!--Activities-->
-        <activity android:name=".evaluated.DecoderActivity">
+        <activity
+            android:name=".evaluated.DecoderActivity"
+            android:launchMode="singleInstance">
         </activity>
+
         <activity
             android:name=".evaluated.ExamWebViewActivity"
+            android:launchMode="singleInstance"
             android:configChanges="orientation|screenSize">
         </activity>
 
