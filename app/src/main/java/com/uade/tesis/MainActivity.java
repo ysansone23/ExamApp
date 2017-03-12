@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void startEvaluado(final View view) {
+    public void startEvaluated(final View view) {
         final Intent intent = DecoderActivity.getIntent(this);
         startActivity(intent);
     }

@@ -10,6 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/evaluado_button"
-        android:onClick="startEvaluado"/>
+        android:onClick="startEvaluated"/>
 
 </LinearLayout>
