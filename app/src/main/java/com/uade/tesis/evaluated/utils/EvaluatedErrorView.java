@@ -51,23 +51,29 @@ public class EvaluatedErrorView extends LinearLayout {
         setPadding(padding, 0, padding, 0);
     }
 
-    public void setUpView(final ErrorViewActions actions) {
+    public void setUpView(final ErrorViewActions actions, final boolean isNetworkingError) {
         final Button retry = (Button) findViewById(R.id.evaluated_error_view_retry);
         final Button scanAnother = (Button) findViewById(R.id.evaluated_error_view_scan_another);
 
-        retry.setOnClickListener(new OnClickListener() {
+        if (isNetworkingError) {
+            retry.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(final View v) {
                     actions.retry();
                 }
             });
-
-        scanAnother.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(final View v) {
-                actions.scanAnother();
-            }
-        });
+            retry.setVisibility(VISIBLE);
+            scanAnother.setVisibility(GONE);
+        } else {
+            scanAnother.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(final View v) {
+                    actions.scanAnother();
+                }
+            });
+            scanAnother.setVisibility(VISIBLE);
+            retry.setVisibility(GONE);
+        }
     }
 
     /**
