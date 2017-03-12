@@ -31,4 +31,13 @@
         <item name="android:textColor">@color/black</item>
         <item name="android:layout_marginBottom">32dp</item>
     </style>
+
+    <!--ErrorView-->
+    <style name="error_view_title" parent="evaluado_loading_text"/>
+
+    <style name="error_view_button" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:background">@drawable/button_ripple</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
 </resources>

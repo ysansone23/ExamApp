@@ -1,9 +1,15 @@
 <resources>
+    <!--General-->
     <string name="app_name">Tesis</string>
     <string name="evaluador_button">Evaluador</string>
     <string name="evaluado_button">Evaluado</string>
-    <string name="title_activity_evaluado">Perfil Evaluado</string>
-    <string name="action_settings">Settings</string>
+
+    <!--Evaluated-->
     <string name="scan_exam">Escanear Examen</string>
     <string name="cargando_examen">Cargando Exámen</string>
+
+    <!--ErrorView-->
+    <string name="error_view_title">¡Ups!\nHubo un problema al intentar cargar</string>
+    <string name="error_view_retry">Reintentar</string>
+    <string name="error_view_scan_another">Escanear otro código</string>
 </resources>
