@@ -30,6 +30,7 @@ public class EvaluatedWebViewClient extends android.webkit.WebViewClient {
         super.onPageFinished(view, url);
         animate(view);
         view.setVisibility(View.VISIBLE);
+        actions.onPageFinished();
     }
 
     @Override
@@ -66,5 +67,7 @@ public class EvaluatedWebViewClient extends android.webkit.WebViewClient {
         void onPageStarted();
 
         void onReceivedError(boolean isNetworkingError);
+
+        void onPageFinished();
     }
 }
