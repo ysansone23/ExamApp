@@ -6,7 +6,9 @@
 
     <!--Evaluated-->
     <string name="scan_exam">Escanear Examen</string>
-    <string name="cargando_examen">Cargando Exámen</string>
+    <string name="loading_exam">Cargando Exámen</string>
+    <string name="ten_minutes_left">Quedan 10 minutos</string>
+    <string name="end_of_exam">Fin del examen</string>
 
     <!--ErrorView-->
     <string name="error_view_title">¡Ups!\nHubo un problema al intentar cargar</string>

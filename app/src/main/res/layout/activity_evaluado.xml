@@ -12,7 +12,7 @@
         android:layout_above="@+id/evaluado_web_view_progress_bar"
         android:layout_centerHorizontal="true"
         style="@style/evaluado_loading_text"
-        android:text="@string/cargando_examen"/>
+        android:text="@string/loading_exam"/>
 
     <ProgressBar
         android:id="@+id/evaluado_web_view_progress_bar"
