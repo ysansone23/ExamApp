@@ -79,7 +79,7 @@ public class ExamWebViewActivity extends AppCompatActivity {
                     @Override
                     public void onPageFinished() {
                         startTimer(TIMER_DURATION_HOURS * 3600 /*seconds*/ * 1000 /*ms*/,
-                                60000 /*We have to set a 60000ms interval so that it changes after one minute*/);
+                                1000 /*We have to set a 1000ms interval so that it changes after one minute*/);
                     }
                 }));
 
@@ -173,6 +173,7 @@ public class ExamWebViewActivity extends AppCompatActivity {
 
         secConverter.hour = 0;
         secConverter.minute = 0;
+        secConverter.second = 0;
 
         secConverter.second = improperSeconds;
         secConverter.normalize(true);
