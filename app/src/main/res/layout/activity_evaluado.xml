@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/evaluado_web_view_progress_bar"
         android:layout_centerHorizontal="true"
-        style="@style/evaluado_loading_text"
+        style="@style/evaluated_loading_text"
         android:text="@string/loading_exam"/>
 
     <ProgressBar
