@@ -43,18 +43,22 @@ public class ExamWebViewActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_evaluado);
+
+        initializeViews();
+        setUpWebView();
+    }
+
+    /* WebView, ProgressBar, etc */
+    private void initializeViews() {
         webView = (WebView) findViewById(R.id.evaluado_form_web_view);
 
         progressBar = (ProgressBar) findViewById(R.id.evaluado_web_view_progress_bar);
         progressBarTitle = (TextView) findViewById(R.id.evaluado_progress_bar_text);
         progressBar.setVisibility(View.VISIBLE);
-
-        setUpWebView(webView);
-
     }
 
     @SuppressLint("SetJavaScriptEnabled")
-    private void setUpWebView(final WebView webView) {
+    private void setUpWebView() {
         if (getIntent().hasExtra(URL)) {
             url = getIntent().getExtras().getString(URL);
         }
@@ -89,6 +93,7 @@ public class ExamWebViewActivity extends AppCompatActivity {
         }
     }
 
+    /* Error Screen */
     private void showErrorScreen(final boolean isNetworkingError) {
         progressBar.setVisibility(View.GONE);
         progressBarTitle.setVisibility(View.GONE);
@@ -122,7 +127,7 @@ public class ExamWebViewActivity extends AppCompatActivity {
         super.onBackPressed();
     }
 
-    //Timer
+    /* Timer */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_items, menu);
