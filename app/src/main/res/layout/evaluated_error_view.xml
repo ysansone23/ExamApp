@@ -14,7 +14,7 @@
         android:id="@+id/evaluated_error_view_retry"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        style="@style/error_view_button"
+        style="@style/button"
         android:layout_marginBottom="20dp"
         android:text="@string/error_view_retry"/>
 
@@ -22,7 +22,7 @@
         android:id="@+id/evaluated_error_view_scan_another"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        style="@style/error_view_button"
+        style="@style/button"
         android:text="@string/error_view_scan_another"/>
 
 </merge>

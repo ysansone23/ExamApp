@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--Text-->
+    <dimen name="pfi_text_14sp">14sp</dimen>
+    <dimen name="pfi_text_16sp">16sp</dimen>
+    <dimen name="pfi_text_18sp">18sp</dimen>
+
+    <!--General-->
+    <dimen name="pfi_10dp">10dp</dimen>
     <dimen name="pfi_16dp">16dp</dimen>
     <dimen name="pfi_20dp">20dp</dimen>
+    <dimen name="pfi_32dp">32dp</dimen>
 </resources>

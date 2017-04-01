@@ -14,4 +14,9 @@
     <string name="error_view_title">¡Ups!\nHubo un problema al intentar cargar</string>
     <string name="error_view_retry">Reintentar</string>
     <string name="error_view_scan_another">Escanear otro código</string>
+
+    <!--Dialog-->
+    <string name="action_accept">Aceptar</string>
+    <string name="welcome_title">¡Atención!</string>
+    <string name="welcome_body">Si usted cambia de aplicación, el evaluador será notificado</string>
 </resources>

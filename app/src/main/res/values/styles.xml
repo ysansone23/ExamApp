@@ -9,13 +9,13 @@
     </style>
 
     <!--Thesis-->
-    <!--General-->
+    <!--App-->
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="ActivityEvaluadoTheme" parent="AppTheme.NoActionBar">
+    <style name="ActivityEvaluatedTheme" parent="AppTheme.NoActionBar">
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowContentOverlay">@null</item>
     </style>
@@ -24,20 +24,31 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
 
+    <!--General-->
+    <style name="button" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:background">@drawable/button_ripple</item>
+        <item name="android:textSize">@dimen/pfi_text_14sp</item>
+        <item name="android:layout_marginTop">@dimen/pfi_16dp</item>
+    </style>
 
-    <!--Evaluado-->
-    <style name="evaluado_loading_text">
-        <item name="android:textSize">18sp</item>
+    <!--Evaluated-->
+    <style name="evaluated_loading_text">
+        <item name="android:textSize">@dimen/pfi_text_18sp</item>
         <item name="android:textColor">@color/black</item>
-        <item name="android:layout_marginBottom">32dp</item>
+        <item name="android:layout_marginBottom">@dimen/pfi_32dp</item>
     </style>
 
     <!--ErrorView-->
-    <style name="error_view_title" parent="evaluado_loading_text"/>
+    <style name="error_view_title" parent="evaluated_loading_text"/>
 
-    <style name="error_view_button" parent="Widget.AppCompat.Button.Borderless">
-        <item name="android:background">@drawable/button_ripple</item>
-        <item name="android:textSize">14sp</item>
+    <!--Dialog-->
+    <style name="dialog_title">
+        <item name="android:textSize">@dimen/pfi_text_16sp</item>
+    </style>
+
+    <style name="dialog_subtitle">
+        <item name="android:textSize">@dimen/pfi_text_14sp</item>
+        <item name="android:layout_marginTop">@dimen/pfi_10dp</item>
     </style>
 
 </resources>

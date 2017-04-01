@@ -8,16 +8,22 @@ import android.os.Bundle;
 
 import com.dlazaro66.qrcodereaderview.QRCodeReaderView;
 import com.uade.tesis.R;
+import com.uade.tesis.evaluated.model.DialogEvent;
+import com.uade.tesis.evaluated.utils.EvaluatedWelcomeDialog;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
 
 public class DecoderActivity extends Activity implements QRCodeReaderView.OnQRCodeReadListener {
 
-    public static final long AUTOFOCUS_INTERVAL_IN_MS = 2000L;
+    public static final long AUTOFOCUS_INTERVAL_IN_MS = 1000L;
     private QRCodeReaderView qrCodeReaderView;
 
     public static Intent getIntent(final Context context) {
         return new Intent(context, DecoderActivity.class);
     }
 
+    @Subscribe
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +46,20 @@ public class DecoderActivity extends Activity implements QRCodeReaderView.OnQRCo
 
         // Use this function to set back camera preview
         qrCodeReaderView.setBackCamera();
+
+        setUpWelcomeDialog();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    protected void onStop() {
+        EventBus.getDefault().unregister(this);
+        super.onStop();
     }
 
     // Called when a QR is decoded
@@ -60,5 +80,23 @@ public class DecoderActivity extends Activity implements QRCodeReaderView.OnQRCo
     protected void onPause() {
         super.onPause();
         qrCodeReaderView.stopCamera();
+    }
+
+    /* Welcome Dialog */
+    private void setUpWelcomeDialog() {
+        qrCodeReaderView.setQRDecodingEnabled(false);
+
+        final EvaluatedWelcomeDialog welcomeDialog = new EvaluatedWelcomeDialog(this);
+        welcomeDialog.show();
+    }
+
+    /* Events */
+    /**
+     * Event handling method used to manage the dismiss of the {@link EvaluatedWelcomeDialog}
+     */
+    @Subscribe
+    @SuppressWarnings("unused")
+    public void onEvent(final DialogEvent welcomeDialogEvent) {
+        qrCodeReaderView.setQRDecodingEnabled(true);
     }
 }
