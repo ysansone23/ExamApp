@@ -1,10 +1,11 @@
-package com.uade.tesis;
+package com.uade.tesis.common;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.uade.tesis.R;
 import com.uade.tesis.evaluated.DecoderActivity;
 
 public class MainActivity extends AppCompatActivity {
