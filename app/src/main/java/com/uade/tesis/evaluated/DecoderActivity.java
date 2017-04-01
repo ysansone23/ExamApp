@@ -84,7 +84,9 @@ public class DecoderActivity extends Activity implements QRCodeReaderView.OnQRCo
 
     /* Welcome Dialog */
     private void setUpWelcomeDialog() {
-        qrCodeReaderView.setQRDecodingEnabled(false);
+        if (qrCodeReaderView != null) {
+            qrCodeReaderView.setQRDecodingEnabled(false);
+        }
 
         final EvaluatedWelcomeDialog welcomeDialog = new EvaluatedWelcomeDialog(this);
         welcomeDialog.show();
@@ -97,6 +99,8 @@ public class DecoderActivity extends Activity implements QRCodeReaderView.OnQRCo
     @Subscribe
     @SuppressWarnings("unused")
     public void onEvent(final DialogEvent welcomeDialogEvent) {
-        qrCodeReaderView.setQRDecodingEnabled(true);
+        if (qrCodeReaderView != null) {
+            qrCodeReaderView.setQRDecodingEnabled(true);
+        }
     }
 }
