@@ -8,8 +8,8 @@ import android.os.Bundle;
 
 import com.dlazaro66.qrcodereaderview.QRCodeReaderView;
 import com.uade.tesis.R;
+import com.uade.tesis.evaluated.dialog.EvaluatedWelcomeDialog;
 import com.uade.tesis.evaluated.model.DialogEvent;
-import com.uade.tesis.evaluated.utils.EvaluatedWelcomeDialog;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;

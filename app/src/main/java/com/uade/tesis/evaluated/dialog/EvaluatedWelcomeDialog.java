@@ -1,4 +1,4 @@
-package com.uade.tesis.evaluated.utils;
+package com.uade.tesis.evaluated.dialog;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -6,8 +6,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StyleRes;
 import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 
 import com.uade.tesis.R;
 import com.uade.tesis.commons.utils.ThesisDialog;
@@ -15,6 +13,9 @@ import com.uade.tesis.evaluated.model.DialogEvent;
 
 import org.greenrobot.eventbus.EventBus;
 
+/**
+ * Dialog used to show information when opening the camera to scan a qr code
+ */
 public class EvaluatedWelcomeDialog extends ThesisDialog {
 
     public EvaluatedWelcomeDialog(@NonNull Context context) {
@@ -32,29 +33,26 @@ public class EvaluatedWelcomeDialog extends ThesisDialog {
     }
 
     private void setUp() {
-        final TextView title = (TextView) findViewById(R.id.thesis_dialog_title);
-        final TextView subtitle = (TextView) findViewById(R.id.thesis_dialog_subtitle);
-        final Button accept = (Button) findViewById(R.id.thesis_dialog_button);
-
-        title.setText(getContext().getResources().getString(R.string.welcome_title));
-        subtitle.setText(getContext().getResources().getString(R.string.welcome_body));
-        accept.setText(getContext().getResources().getString(R.string.action_accept));
-
         //Dismiss when tapping outside the dialog
-        setOnDismissListener(new OnDismissListener() {
+        final OnDismissListener dismissListener = new OnDismissListener() {
             @Override
             public void onDismiss(DialogInterface dialog) {
                 /* DecoderActivity should handle this event */
                 EventBus.getDefault().post(new DialogEvent());
             }
-        });
+        };
+        onDismiss(dismissListener);
 
         //Dismiss when tapping on the accept button
-        accept.setOnClickListener(new View.OnClickListener() {
+        final View.OnClickListener acceptButtonListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dismiss();
             }
-        });
+        };
+        setUpButton(getContext().getResources().getString(R.string.action_accept), acceptButtonListener);
+
+        setTitleText(getContext().getResources().getString(R.string.welcome_title));
+        setSubtitleText(getContext().getResources().getString(R.string.welcome_body));
     }
 }

@@ -15,9 +15,14 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.uade.tesis.R;
+import com.uade.tesis.evaluated.dialog.ReturningDialog;
+import com.uade.tesis.evaluated.model.DialogEvent;
 import com.uade.tesis.evaluated.utils.EvaluatedErrorView;
 import com.uade.tesis.evaluated.utils.EvaluatedTimer;
 import com.uade.tesis.evaluated.utils.EvaluatedWebViewClient;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
 
 public class ExamWebViewActivity extends AppCompatActivity {
 
@@ -40,12 +45,32 @@ public class ExamWebViewActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_evaluado);
 
+        if (savedInstanceState != null) {
+            //We are coming back from another app.
+            //TODO buscar formas de chequear si vengo de otra app.
+            //Deberiamos poder reconocer SOLO cuando abrimos otra app y por cuanto tiempo. En caso de ser menos de 5 segundos podriamos obviarlo.
+            //El tema es que no encuentro nada sobre esto. Teoricamente se puede hacer.
+            final ReturningDialog returningDialog = new ReturningDialog(this);
+            returningDialog.show();
+        }
+
         initializeViews();
         setUpWebView();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    protected void onStop() {
+        EventBus.getDefault().unregister(this);
+        super.onStop();
     }
 
     /* WebView, ProgressBar, etc */
@@ -151,6 +176,13 @@ public class ExamWebViewActivity extends AppCompatActivity {
 
         timerText.setTitle(builder.toString());
         return true;
+    }
+
+    /* Events */
+    @Subscribe
+    @SuppressWarnings("unused")
+    public void onEvent(final DialogEvent returningEvent) {
+        /* Here whe should send data to the professor about the student who swap between apps */
     }
 
 }
