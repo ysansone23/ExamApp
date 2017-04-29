@@ -6,16 +6,15 @@ import android.os.Build;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.LinearLayout;
+import android.widget.FrameLayout;
 
 import com.uade.tesis.R;
 
-public class EvaluatedErrorView extends LinearLayout {
+public class EvaluatedErrorView extends FrameLayout {
 
     public EvaluatedErrorView(Context context) {
         this(context, null);
@@ -42,10 +41,7 @@ public class EvaluatedErrorView extends LinearLayout {
         setLayoutParams(params);
 
         LayoutInflater.from(getContext()).inflate(R.layout.evaluated_error_view, this);
-        setOrientation(VERTICAL);
         setBackgroundColor(ContextCompat.getColor(getContext(), R.color.white));
-
-        setGravity(Gravity.CENTER);
 
         final int padding = (int) getContext().getResources().getDimension(R.dimen.pfi_20dp);
         setPadding(padding, 0, padding, 0);

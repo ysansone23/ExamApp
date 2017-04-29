@@ -2,27 +2,48 @@
 <merge
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <TextView
-        android:id="@+id/evaluated_error_view_title"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/error_view_title"
-        style="@style/error_view_title"
-        android:gravity="center"/>
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/evaluated_error_view_retry"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        style="@style/button"
-        android:layout_marginBottom="20dp"
-        android:text="@string/error_view_retry"/>
+        <LinearLayout
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/evaluated_error_view_scan_another"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        style="@style/button"
-        android:text="@string/error_view_scan_another"/>
+            <ImageView
+                android:contentDescription="@null"
+                android:src="@drawable/ilus_internet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/pfi_32dp"/>
+
+            <TextView
+                android:id="@+id/evaluated_error_view_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/error_view_title"
+                style="@style/error_view_title"
+                android:gravity="center"/>
+
+            <Button
+                android:id="@+id/evaluated_error_view_retry"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                style="@style/button"
+                android:layout_marginBottom="20dp"
+                android:text="@string/error_view_retry"/>
+
+            <Button
+                android:id="@+id/evaluated_error_view_scan_another"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                style="@style/button"
+                android:text="@string/error_view_scan_another"/>
+
+        </LinearLayout>
+    </ScrollView>
 
 </merge>

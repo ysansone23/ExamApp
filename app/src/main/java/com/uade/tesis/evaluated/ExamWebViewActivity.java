@@ -79,7 +79,8 @@ public class ExamWebViewActivity extends AppCompatActivity {
 
                     @Override
                     public void onPageFinished() {
-                        final int duration = TIMER_DURATION_HOURS * 3600 /*seconds*/ * 1000 /*ms*/;
+//                        final int duration = TIMER_DURATION_HOURS * 3600 /*seconds*/ * 1000 /*ms*/;
+                        final int duration = 5000;
                         /*We have to set a 1000ms interval so that it changes after one minute*/
                         final int interval = 1000;
                         new EvaluatedTimer(duration, interval, timerText, getApplicationContext()).start();
@@ -90,6 +91,8 @@ public class ExamWebViewActivity extends AppCompatActivity {
             webView.getSettings().setJavaScriptEnabled(true);
             webView.getSettings().setUserAgentString("Android");
             webView.loadUrl(url);
+
+            webView.setPadding(0,0,0,0);
         }
     }
 
