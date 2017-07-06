@@ -1,4 +1,4 @@
-package com.uade.tesis.common.utils;
+package com.uade.tesis.commons.utils;
 
 import android.app.Dialog;
 import android.content.Context;

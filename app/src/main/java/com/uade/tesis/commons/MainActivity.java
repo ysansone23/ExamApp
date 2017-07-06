@@ -1,4 +1,4 @@
-package com.uade.tesis.common;
+package com.uade.tesis.commons;
 
 import android.content.Intent;
 import android.os.Bundle;

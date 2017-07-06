@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.uade.tesis.R;
-import com.uade.tesis.common.utils.ThesisDialog;
+import com.uade.tesis.commons.utils.ThesisDialog;
 import com.uade.tesis.evaluated.model.DialogEvent;
 
 import org.greenrobot.eventbus.EventBus;
