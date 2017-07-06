@@ -1,4 +1,6 @@
 language: android
 sudo: false
 
-jdk: 1.8
+jdk: oraclejdk8
+
+after_failure: "cat $TRAVIS_BUILD_DIR/app/build/outputs/lint-results-debug.xml"
