@@ -5,18 +5,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.PointF;
 import android.os.Bundle;
-
 import com.dlazaro66.qrcodereaderview.QRCodeReaderView;
 import com.uade.tesis.R;
 import com.uade.tesis.evaluated.model.DialogEvent;
 import com.uade.tesis.evaluated.utils.EvaluatedWelcomeDialog;
-
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
 public class DecoderActivity extends Activity implements QRCodeReaderView.OnQRCodeReadListener {
 
     public static final long AUTOFOCUS_INTERVAL_IN_MS = 1000L;
+
     private QRCodeReaderView qrCodeReaderView;
 
     public static Intent getIntent(final Context context) {

@@ -14,19 +14,19 @@ public class EvaluatedWebViewClient extends android.webkit.WebViewClient {
 
     private final WebViewActions actions;
 
-    public EvaluatedWebViewClient(WebViewActions actions) {
+    public EvaluatedWebViewClient(final WebViewActions actions) {
         super();
         this.actions = actions;
     }
 
     @Override
-    public void onPageStarted(WebView view, String url, Bitmap favicon) {
+    public void onPageStarted(final WebView view, final String url, final Bitmap favicon) {
         actions.onPageStarted();
         super.onPageStarted(view, url, favicon);
     }
 
     @Override
-    public void onPageFinished(WebView view, String url) {
+    public void onPageFinished(final WebView view, final String url) {
         super.onPageFinished(view, url);
         animate(view);
         view.setVisibility(View.VISIBLE);
@@ -34,7 +34,8 @@ public class EvaluatedWebViewClient extends android.webkit.WebViewClient {
     }
 
     @Override
-    public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
+    public void onReceivedError(final WebView view, final int errorCode, final String description,
+        final String failingUrl) {
         super.onReceivedError(view, errorCode, description, failingUrl);
         if (errorCode == ERROR_HOST_LOOKUP) {
             actions.onReceivedError(true);
@@ -45,7 +46,7 @@ public class EvaluatedWebViewClient extends android.webkit.WebViewClient {
 
     @TargetApi(Build.VERSION_CODES.M)
     @Override
-    public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
+    public void onReceivedError(final WebView view, final WebResourceRequest request, final WebResourceError error) {
         super.onReceivedError(view, request, error);
         if (error.getErrorCode() == ERROR_HOST_LOOKUP) {
             actions.onReceivedError(true);
@@ -55,7 +56,7 @@ public class EvaluatedWebViewClient extends android.webkit.WebViewClient {
     }
 
     private void animate(final WebView view) {
-        Animation anim = AnimationUtils.loadAnimation(view.getContext(), android.R.anim.slide_in_left);
+        final Animation anim = AnimationUtils.loadAnimation(view.getContext(), android.R.anim.slide_in_left);
         view.startAnimation(anim);
     }
 
