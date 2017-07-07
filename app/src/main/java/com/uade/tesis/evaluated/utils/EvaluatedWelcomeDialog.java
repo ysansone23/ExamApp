@@ -17,16 +17,17 @@ import org.greenrobot.eventbus.EventBus;
 
 public class EvaluatedWelcomeDialog extends ThesisDialog {
 
-    public EvaluatedWelcomeDialog(@NonNull Context context) {
+    public EvaluatedWelcomeDialog(@NonNull final Context context) {
         this(context, 0);
     }
 
-    public EvaluatedWelcomeDialog(@NonNull Context context, @StyleRes int themeResId) {
+    public EvaluatedWelcomeDialog(@NonNull final Context context, @StyleRes final int themeResId) {
         super(context, themeResId);
         setUp();
     }
 
-    protected EvaluatedWelcomeDialog(@NonNull Context context, boolean cancelable, @Nullable OnCancelListener cancelListener) {
+    protected EvaluatedWelcomeDialog(@NonNull final Context context, final boolean cancelable,
+        @Nullable final OnCancelListener cancelListener) {
         super(context, cancelable, cancelListener);
         setUp();
     }

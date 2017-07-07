@@ -16,27 +16,28 @@ import com.uade.tesis.R;
 
 public class EvaluatedErrorView extends FrameLayout {
 
-    public EvaluatedErrorView(Context context) {
+    public EvaluatedErrorView(final Context context) {
         this(context, null);
     }
 
-    public EvaluatedErrorView(Context context, @Nullable AttributeSet attrs) {
+    public EvaluatedErrorView(final Context context, @Nullable final AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public EvaluatedErrorView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public EvaluatedErrorView(final Context context, @Nullable final AttributeSet attrs, final int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         initView();
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public EvaluatedErrorView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public EvaluatedErrorView(final Context context, final AttributeSet attrs, final int defStyleAttr,
+        final int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         initView();
     }
 
     private void initView() {
-        LayoutParams params =
+        final LayoutParams params =
                 new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         setLayoutParams(params);
 

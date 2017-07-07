@@ -10,10 +10,12 @@ import com.uade.tesis.R;
 
 public class EvaluatedTimer extends CountDownTimer {
 
-    private MenuItem timerText;
-    private Context context;
+    private final MenuItem timerText;
+    private final Context context;
 
     private static final int MINUTES_LEFT = 10;
+    private static final String ZERO = "0";
+    private static final String TIME_SEPARATOR = ":";
 
     /**
      * @param millisInFuture    The number of millis in the future from the call
@@ -33,7 +35,7 @@ public class EvaluatedTimer extends CountDownTimer {
 
     @Override
     public void onTick(final long millisUntilFinished) {
-        int secondsLeft = (int) Math.round((millisUntilFinished / (double) 1000));
+        final int secondsLeft = (int) Math.round((millisUntilFinished / (double) 1000));
         timerText.setTitle(secondsToString(secondsLeft));
     }
 
@@ -45,7 +47,7 @@ public class EvaluatedTimer extends CountDownTimer {
     }
 
     private String secondsToString(final int improperSeconds) {
-        Time secConverter = new Time();
+        final Time secConverter = new Time();
 
         secConverter.hour = 0;
         secConverter.minute = 0;
@@ -61,16 +63,16 @@ public class EvaluatedTimer extends CountDownTimer {
         String seconds = String.valueOf(secConverter.second);
 
         if (seconds.length() < 2) {
-            seconds = "0" + seconds;
+            seconds = ZERO + seconds;
         }
         if (minutes.length() < 2) {
-            minutes = "0" + minutes;
+            minutes = ZERO + minutes;
         }
         if (hours.length() < 2) {
-            hours = "0" + hours;
+            hours = ZERO + hours;
         }
 
-        return hours + ":" + minutes + ":" + seconds;
+        return hours + TIME_SEPARATOR + minutes + TIME_SEPARATOR + seconds;
     }
 
     private void showToastIfNeeded(final Time secConverter) {

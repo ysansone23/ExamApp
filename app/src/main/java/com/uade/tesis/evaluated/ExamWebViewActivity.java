@@ -32,8 +32,8 @@ public class ExamWebViewActivity extends AppCompatActivity {
 
     private MenuItem timerText;
 
-    public static Intent getIntent(@NonNull final Context context, String text) {
-        Intent intent = new Intent(context, ExamWebViewActivity.class);
+    public static Intent getIntent(@NonNull final Context context, final String text) {
+        final Intent intent = new Intent(context, ExamWebViewActivity.class);
         intent.putExtra(URL, text);
         return intent;
     }
@@ -70,10 +70,10 @@ public class ExamWebViewActivity extends AppCompatActivity {
                     public void onPageStarted() {
                         progressBar.setVisibility(View.VISIBLE);
                         progressBarTitle.setVisibility(View.VISIBLE);
-                }
+                    }
 
                     @Override
-                    public void onReceivedError(boolean isNetworkingError) {
+                    public void onReceivedError(final boolean isNetworkingError) {
                         showErrorScreen(isNetworkingError);
                     }
 
@@ -86,7 +86,6 @@ public class ExamWebViewActivity extends AppCompatActivity {
                         new EvaluatedTimer(duration, interval, timerText, getApplicationContext()).start();
                     }
                 }));
-
             webView.getSettings().setUseWideViewPort(true);
             webView.getSettings().setJavaScriptEnabled(true);
             webView.getSettings().setUserAgentString("Android");
@@ -101,7 +100,7 @@ public class ExamWebViewActivity extends AppCompatActivity {
         progressBar.setVisibility(View.GONE);
         progressBarTitle.setVisibility(View.GONE);
 
-        EvaluatedErrorView.ErrorViewActions errorViewActions = new EvaluatedErrorView.ErrorViewActions() {
+        final EvaluatedErrorView.ErrorViewActions errorViewActions = new EvaluatedErrorView.ErrorViewActions() {
             @Override
             public void retry() {
                 webView.loadUrl(url);
@@ -132,18 +131,18 @@ public class ExamWebViewActivity extends AppCompatActivity {
 
     /* Timer */
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+    public boolean onCreateOptionsMenu(final Menu menu) {
         getMenuInflater().inflate(R.menu.menu_items, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
-    public boolean onPrepareOptionsMenu(Menu menu) {
+    public boolean onPrepareOptionsMenu(final Menu menu) {
         super.onPrepareOptionsMenu(menu);
         timerText = menu.findItem(R.id.menu_timer);
 
         final String hours = String.valueOf(TIMER_DURATION_HOURS);
-        StringBuilder builder = new StringBuilder();
+        final StringBuilder builder = new StringBuilder();
         if (hours.length() < 2) {
             builder.append("0");
         }
