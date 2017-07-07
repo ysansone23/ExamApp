@@ -56,3 +56,7 @@ android:
 
  script:
  - "./gradlew clean build connectedCheck -PdisablePreDex --stacktrace"
+
+branches:
+    only:
+        - master
