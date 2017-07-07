@@ -1,0 +1,4 @@
+language: android
+sudo: false
+
+jdk: 1.8
