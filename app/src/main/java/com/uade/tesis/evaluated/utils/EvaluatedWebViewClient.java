@@ -9,7 +9,6 @@ import android.view.animation.AnimationUtils;
 import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
-import android.widget.Toast;
 
 public class EvaluatedWebViewClient extends android.webkit.WebViewClient {
 
@@ -25,7 +24,7 @@ public class EvaluatedWebViewClient extends android.webkit.WebViewClient {
         super.onPageStarted(view, url, favicon);
         actions.onPageStarted();
         if (url.contains("formResponse")) {
-            actions.onSendAnswer();
+            actions.sendAnswer();
         }
     }
 
@@ -34,6 +33,7 @@ public class EvaluatedWebViewClient extends android.webkit.WebViewClient {
         animate(view);
         view.setVisibility(View.VISIBLE);
         actions.onPageFinished();
+
         super.onPageFinished(view, url);
     }
 
@@ -75,6 +75,6 @@ public class EvaluatedWebViewClient extends android.webkit.WebViewClient {
 
         void onPageFinished();
 
-        void onSendAnswer();
+        void sendAnswer();
     }
 }

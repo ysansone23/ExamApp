@@ -13,7 +13,6 @@ import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
 import com.uade.tesis.R;
 import com.uade.tesis.evaluated.utils.EvaluatedErrorView;
 import com.uade.tesis.evaluated.utils.EvaluatedTimer;
@@ -64,39 +63,7 @@ public class ExamWebViewActivity extends AppCompatActivity {
         }
 
         if (webView != null) {
-            webView.setWebViewClient(new EvaluatedWebViewClient(
-                new EvaluatedWebViewClient.WebViewActions() {
-                    @Override
-                    public void onPageStarted() {
-                        showProgressBar(true);
-                    }
-
-                    @Override
-                    public void onReceivedError(final boolean isNetworkingError) {
-                        showErrorScreen(isNetworkingError);
-                    }
-
-                    @Override
-                    public void onPageFinished() {
-                        final int duration = TIMER_DURATION_HOURS * 3600 /*seconds*/ * 1000 /*ms*/;
-                        /*We have to set a 1000ms interval so that it changes after one minute*/
-                        final int interval = 1000;
-                        new EvaluatedTimer(duration, interval, timerText, getApplicationContext(),
-                            new EvaluatedTimer.TimerActions() {
-                                @Override
-                                public void onFinish() {
-                                    webView.loadUrl(
-                                        "javascript:(function(){document.getElementById('ss-submit').click();})()");
-                                    showCongrats();
-                                }
-                            }).start();
-                    }
-
-                    @Override
-                    public void onSendAnswer() {
-                        showCongrats();
-                    }
-                }));
+            webView.setWebViewClient(new EvaluatedWebViewClient(getEvaluatedWebViewActions()));
 
             webView.getSettings().setUseWideViewPort(true);
             webView.getSettings().setJavaScriptEnabled(true);
@@ -176,6 +143,41 @@ public class ExamWebViewActivity extends AppCompatActivity {
     private void showCongrats() {
         startActivity(EvaluatedCongrats.getIntent(ExamWebViewActivity.this));
         finish();
+    }
+
+    private EvaluatedWebViewClient.WebViewActions getEvaluatedWebViewActions() {
+       return new EvaluatedWebViewClient.WebViewActions() {
+            @Override
+            public void onPageStarted() {
+                showProgressBar(true);
+            }
+
+            @Override
+            public void onReceivedError(final boolean isNetworkingError) {
+                showErrorScreen(isNetworkingError);
+            }
+
+            @Override
+            public void onPageFinished() {
+                final int duration = TIMER_DURATION_HOURS * 3600 /*seconds*/ * 1000 /*ms*/;
+                        /*We have to set a 1000ms interval so that it changes after one minute*/
+                final int interval = 1000;
+                new EvaluatedTimer(duration, interval, timerText, getApplicationContext(),
+                    new EvaluatedTimer.TimerActions() {
+                        @Override
+                        public void onFinish() {
+                            webView.loadUrl(
+                                "javascript:(function(){document.getElementById('ss-submit').click();})()");
+                            showCongrats();
+                        }
+                    }).start();
+            }
+
+            @Override
+            public void sendAnswer() {
+                showCongrats();
+            }
+        };
     }
 
 }
