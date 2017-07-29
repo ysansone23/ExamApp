@@ -19,4 +19,7 @@
     <string name="action_accept">Aceptar</string>
     <string name="welcome_title">¡Atención!</string>
     <string name="welcome_body">Si usted cambia de aplicación, el evaluador será notificado</string>
+
+    <!--Congrats-->
+    <string name="congrats_title">Enviado</string>
 </resources>

@@ -22,16 +22,19 @@ public class EvaluatedWebViewClient extends android.webkit.WebViewClient {
 
     @Override
     public void onPageStarted(final WebView view, final String url, final Bitmap favicon) {
-        actions.onPageStarted();
         super.onPageStarted(view, url, favicon);
+        actions.onPageStarted();
+        if (url.contains("formResponse")) {
+            actions.onSendAnswer();
+        }
     }
 
     @Override
     public void onPageFinished(final WebView view, final String url) {
-        super.onPageFinished(view, url);
         animate(view);
         view.setVisibility(View.VISIBLE);
         actions.onPageFinished();
+        super.onPageFinished(view, url);
     }
 
     @Override
@@ -61,17 +64,6 @@ public class EvaluatedWebViewClient extends android.webkit.WebViewClient {
         view.startAnimation(anim);
     }
 
-    @Override
-    public boolean shouldOverrideUrlLoading(final WebView view, final WebResourceRequest request) {
-
-        return super.shouldOverrideUrlLoading(view, request);
-    }
-
-    @Override
-    public boolean shouldOverrideUrlLoading(final WebView view, final String url) {
-        return super.shouldOverrideUrlLoading(view, url);
-    }
-
     /**
      * Interface used to set actions to the different web view states
      */
@@ -82,5 +74,7 @@ public class EvaluatedWebViewClient extends android.webkit.WebViewClient {
         void onReceivedError(boolean isNetworkingError);
 
         void onPageFinished();
+
+        void onSendAnswer();
     }
 }

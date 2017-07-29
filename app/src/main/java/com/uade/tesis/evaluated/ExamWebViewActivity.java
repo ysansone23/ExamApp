@@ -54,7 +54,7 @@ public class ExamWebViewActivity extends AppCompatActivity {
 
         progressBar = (ProgressBar) findViewById(R.id.evaluado_web_view_progress_bar);
         progressBarTitle = (TextView) findViewById(R.id.evaluado_progress_bar_text);
-        progressBar.setVisibility(View.VISIBLE);
+        showProgressBar(true);
     }
 
     @SuppressLint("SetJavaScriptEnabled")
@@ -68,8 +68,7 @@ public class ExamWebViewActivity extends AppCompatActivity {
                 new EvaluatedWebViewClient.WebViewActions() {
                     @Override
                     public void onPageStarted() {
-                        progressBar.setVisibility(View.VISIBLE);
-                        progressBarTitle.setVisibility(View.VISIBLE);
+                        showProgressBar(true);
                     }
 
                     @Override
@@ -88,10 +87,17 @@ public class ExamWebViewActivity extends AppCompatActivity {
                                 public void onFinish() {
                                     webView.loadUrl(
                                         "javascript:(function(){document.getElementById('ss-submit').click();})()");
+                                    showCongrats();
                                 }
                             }).start();
                     }
+
+                    @Override
+                    public void onSendAnswer() {
+                        showCongrats();
+                    }
                 }));
+
             webView.getSettings().setUseWideViewPort(true);
             webView.getSettings().setJavaScriptEnabled(true);
             webView.getSettings().setUserAgentString("Android");
@@ -103,8 +109,7 @@ public class ExamWebViewActivity extends AppCompatActivity {
 
     /* Error Screen */
     private void showErrorScreen(final boolean isNetworkingError) {
-        progressBar.setVisibility(View.GONE);
-        progressBarTitle.setVisibility(View.GONE);
+        showProgressBar(false);
 
         final EvaluatedErrorView.ErrorViewActions errorViewActions = new EvaluatedErrorView.ErrorViewActions() {
             @Override
@@ -156,6 +161,21 @@ public class ExamWebViewActivity extends AppCompatActivity {
 
         timerText.setTitle(builder.toString());
         return true;
+    }
+
+    private void showProgressBar(final boolean show) {
+        if (show) {
+            progressBar.setVisibility(View.VISIBLE);
+            progressBarTitle.setVisibility(View.VISIBLE);
+        } else {
+            progressBar.setVisibility(View.GONE);
+            progressBarTitle.setVisibility(View.GONE);
+        }
+    }
+
+    private void showCongrats() {
+        startActivity(EvaluatedCongrats.getIntent(ExamWebViewActivity.this));
+        finish();
     }
 
 }
