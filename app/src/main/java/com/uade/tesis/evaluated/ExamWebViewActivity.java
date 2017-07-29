@@ -79,11 +79,17 @@ public class ExamWebViewActivity extends AppCompatActivity {
 
                     @Override
                     public void onPageFinished() {
-//                        final int duration = TIMER_DURATION_HOURS * 3600 /*seconds*/ * 1000 /*ms*/;
-                        final int duration = 5000;
+                        final int duration = TIMER_DURATION_HOURS * 3600 /*seconds*/ * 1000 /*ms*/;
                         /*We have to set a 1000ms interval so that it changes after one minute*/
                         final int interval = 1000;
-                        new EvaluatedTimer(duration, interval, timerText, getApplicationContext()).start();
+                        new EvaluatedTimer(duration, interval, timerText, getApplicationContext(),
+                            new EvaluatedTimer.TimerActions() {
+                                @Override
+                                public void onFinish() {
+                                    webView.loadUrl(
+                                        "javascript:(function(){document.getElementById('ss-submit').click();})()");
+                                }
+                            }).start();
                     }
                 }));
             webView.getSettings().setUseWideViewPort(true);
