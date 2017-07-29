@@ -5,13 +5,13 @@ import android.os.CountDownTimer;
 import android.text.format.Time;
 import android.view.MenuItem;
 import android.widget.Toast;
-
 import com.uade.tesis.R;
 
 public class EvaluatedTimer extends CountDownTimer {
 
     private final MenuItem timerText;
     private final Context context;
+    private final TimerActions actions;
 
     private static final int MINUTES_LEFT = 10;
     private static final String ZERO = "0";
@@ -27,10 +27,11 @@ public class EvaluatedTimer extends CountDownTimer {
      * @param context           The application context
      */
     public EvaluatedTimer(final long millisInFuture, final long countDownInterval, final MenuItem timerText,
-                          final Context context) {
+                          final Context context, final TimerActions actions) {
         super(millisInFuture, countDownInterval);
         this.timerText = timerText;
         this.context = context;
+        this.actions = actions;
     }
 
     @Override
@@ -43,7 +44,7 @@ public class EvaluatedTimer extends CountDownTimer {
     public void onFinish() {
         Toast.makeText(context, R.string.end_of_exam, Toast.LENGTH_LONG).show();
         timerText.setTitle("00:00:00");
-        //TODO agregar manejo del final del timer
+        actions.onFinish();
     }
 
     private String secondsToString(final int improperSeconds) {
@@ -80,5 +81,10 @@ public class EvaluatedTimer extends CountDownTimer {
         if (secConverter.minute == MINUTES_LEFT && secConverter.second == 0) {
             Toast.makeText(context, R.string.ten_minutes_left, Toast.LENGTH_LONG).show();
         }
+    }
+
+    public interface TimerActions {
+
+        void onFinish();
     }
 }

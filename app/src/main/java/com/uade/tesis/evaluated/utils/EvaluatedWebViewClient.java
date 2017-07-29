@@ -9,6 +9,7 @@ import android.view.animation.AnimationUtils;
 import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
+import android.widget.Toast;
 
 public class EvaluatedWebViewClient extends android.webkit.WebViewClient {
 
@@ -58,6 +59,17 @@ public class EvaluatedWebViewClient extends android.webkit.WebViewClient {
     private void animate(final WebView view) {
         final Animation anim = AnimationUtils.loadAnimation(view.getContext(), android.R.anim.slide_in_left);
         view.startAnimation(anim);
+    }
+
+    @Override
+    public boolean shouldOverrideUrlLoading(final WebView view, final WebResourceRequest request) {
+
+        return super.shouldOverrideUrlLoading(view, request);
+    }
+
+    @Override
+    public boolean shouldOverrideUrlLoading(final WebView view, final String url) {
+        return super.shouldOverrideUrlLoading(view, url);
     }
 
     /**
