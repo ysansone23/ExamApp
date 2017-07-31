@@ -142,7 +142,7 @@ public class ExamWebViewActivity extends AppCompatActivity {
     }
 
     private void showCongrats() {
-        startActivity(EvaluatedCongrats.getIntent(ExamWebViewActivity.this));
+        startActivity(EvaluatedCongratsActivity.getIntent(ExamWebViewActivity.this));
         finish();
     }
 
