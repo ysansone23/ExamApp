@@ -1,14 +1,13 @@
 package com.uade.tesis.commons;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-
 import com.uade.tesis.R;
 import com.uade.tesis.evaluated.DecoderActivity;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {

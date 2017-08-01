@@ -1,11 +1,11 @@
 package com.uade.tesis.evaluated;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,7 +18,7 @@ import com.uade.tesis.evaluated.utils.EvaluatedErrorView;
 import com.uade.tesis.evaluated.utils.EvaluatedTimer;
 import com.uade.tesis.evaluated.utils.EvaluatedWebViewClient;
 
-public class ExamWebViewActivity extends AppCompatActivity {
+public class ExamWebViewActivity extends Activity {
 
     private static final String URL = "url";
     private static final String FINISH_TIME = "00:00:00";
