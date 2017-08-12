@@ -2,6 +2,7 @@ package com.uade.tesis.evaluated.utils;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.res.Resources;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StyleRes;
@@ -37,14 +38,15 @@ public class EvaluatedWelcomeDialog extends ThesisDialog {
         final TextView subtitle = (TextView) findViewById(R.id.thesis_dialog_subtitle);
         final Button accept = (Button) findViewById(R.id.thesis_dialog_button);
 
-        title.setText(getContext().getResources().getString(R.string.welcome_title));
-        subtitle.setText(getContext().getResources().getString(R.string.welcome_body));
-        accept.setText(getContext().getResources().getString(R.string.action_accept));
+        final Resources resources = getContext().getResources();
+        title.setText(resources.getString(R.string.welcome_title));
+        subtitle.setText(resources.getString(R.string.welcome_body));
+        accept.setText(resources.getString(R.string.action_accept));
 
         //Dismiss when tapping outside the dialog
         setOnDismissListener(new OnDismissListener() {
             @Override
-            public void onDismiss(DialogInterface dialog) {
+            public void onDismiss(final DialogInterface dialog) {
                 /* DecoderActivity should handle this event */
                 EventBus.getDefault().post(new DialogEvent());
             }
@@ -53,7 +55,7 @@ public class EvaluatedWelcomeDialog extends ThesisDialog {
         //Dismiss when tapping on the accept button
         accept.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(final View v) {
                 dismiss();
             }
         });

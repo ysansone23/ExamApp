@@ -44,17 +44,13 @@ public class ExamWebViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_evaluado);
 
-        initializeViews();
-        setUpWebView();
-    }
-
-    /* WebView, ProgressBar, etc */
-    private void initializeViews() {
         webView = (WebView) findViewById(R.id.evaluado_form_web_view);
 
         progressBar = (ProgressBar) findViewById(R.id.evaluado_web_view_progress_bar);
         progressBarTitle = (TextView) findViewById(R.id.evaluado_progress_bar_text);
         showProgressBar(true);
+
+        setUpWebView();
     }
 
     @SuppressLint("SetJavaScriptEnabled")
