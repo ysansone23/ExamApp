@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -11,19 +12,23 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        style="@style/dialog_title"/>
+        style="@style/dialog_title"
+        tools:text="Titulo"/>
 
     <TextView
         android:id="@+id/thesis_dialog_subtitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        style="@style/dialog_subtitle"/>
+        style="@style/dialog_subtitle"
+        tools:text="Subtitulo"/>
     
     <Button
         android:id="@+id/thesis_dialog_button"
+        android:layout_marginTop="@dimen/pfi_10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/button"/>
+        tools:text="Boton"
+        style="@style/base_button"/>
 
 </LinearLayout>
