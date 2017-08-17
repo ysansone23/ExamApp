@@ -15,8 +15,10 @@ import org.greenrobot.eventbus.Subscribe;
 public class DecoderActivity extends Activity implements QRCodeReaderView.OnQRCodeReadListener {
 
     public static final long AUTOFOCUS_INTERVAL_IN_MS = 1000L;
+    public static final String SHOULD_SHOW_DIALOG = "shouldShowModal";
 
     private QRCodeReaderView qrCodeReaderView;
+    private boolean isDialogShowing;
 
     public static Intent getIntent(final Context context) {
         return new Intent(context, DecoderActivity.class);
@@ -46,7 +48,26 @@ public class DecoderActivity extends Activity implements QRCodeReaderView.OnQRCo
         // Use this function to set back camera preview
         qrCodeReaderView.setBackCamera();
 
-        setUpWelcomeDialog();
+        if (savedInstanceState == null) {
+            //Show the dialog the first time the activity is created
+            setUpWelcomeDialog();
+        }
+
+    }
+
+    @Override
+    protected void onSaveInstanceState(final Bundle outState) {
+        outState.putBoolean(SHOULD_SHOW_DIALOG, isDialogShowing);
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(final Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        isDialogShowing = savedInstanceState.getBoolean(SHOULD_SHOW_DIALOG);
+        if (isDialogShowing) {
+            setUpWelcomeDialog();
+        }
     }
 
     @Override
@@ -89,6 +110,7 @@ public class DecoderActivity extends Activity implements QRCodeReaderView.OnQRCo
 
         final EvaluatedWelcomeDialog welcomeDialog = new EvaluatedWelcomeDialog(this);
         welcomeDialog.show();
+        isDialogShowing = true;
     }
 
     /* Events */
@@ -101,5 +123,6 @@ public class DecoderActivity extends Activity implements QRCodeReaderView.OnQRCo
         if (qrCodeReaderView != null) {
             qrCodeReaderView.setQRDecodingEnabled(true);
         }
+        isDialogShowing = false;
     }
 }
