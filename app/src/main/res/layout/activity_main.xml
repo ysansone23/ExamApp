@@ -20,4 +20,18 @@
         android:layout_height="@dimen/pfi_1dp"
         android:background="@color/color_primary_dark"/>
 
+    <Button
+        android:id="@+id/button2"
+        android:layout_marginTop="@dimen/pfi_20dp"
+        style="@style/base_button"
+        android:onClick="startModal"
+        android:gravity="center|left"
+        android:text="Modal"
+        tools:ignore="RtlHardcoded"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/pfi_1dp"
+        android:background="@color/color_primary_dark"/>
+
 </LinearLayout>

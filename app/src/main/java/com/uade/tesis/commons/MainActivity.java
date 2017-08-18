@@ -7,6 +7,7 @@ import android.view.View;
 
 import com.uade.tesis.R;
 import com.uade.tesis.evaluated.DecoderActivity;
+import com.uade.tesis.evaluated.utils.EvaluatedWelcomeDialog;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,6 +20,11 @@ public class MainActivity extends AppCompatActivity {
     public void startEvaluated(final View view) {
         final Intent intent = DecoderActivity.getIntent(this);
         startActivity(intent);
+    }
+
+    public void startModal(final View view) {
+        final EvaluatedWelcomeDialog welcomeDialog = new EvaluatedWelcomeDialog(this);
+        welcomeDialog.show();
     }
 }
 
