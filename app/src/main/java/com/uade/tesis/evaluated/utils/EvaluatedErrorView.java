@@ -44,7 +44,7 @@ public class EvaluatedErrorView extends FrameLayout {
         LayoutInflater.from(getContext()).inflate(R.layout.evaluated_error_view, this);
         setBackgroundColor(ContextCompat.getColor(getContext(), R.color.white));
 
-        final int padding = (int) getContext().getResources().getDimension(R.dimen.pfi_20dp);
+        final int padding = (int) getContext().getResources().getDimension(R.dimen.pfi_24dp);
         setPadding(padding, 0, padding, 0);
     }
 

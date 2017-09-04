@@ -11,6 +11,7 @@
     <!--General-->
     <dimen name="pfi_1dp">1dp</dimen>
     <dimen name="pfi_4dp">4dp</dimen>
+    <dimen name="pfi_8dp">8dp</dimen>
     <dimen name="pfi_10dp">10dp</dimen>
     <dimen name="pfi_16dp">16dp</dimen>
     <dimen name="pfi_20dp">20dp</dimen>
