@@ -11,7 +11,8 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/evaluado_web_view_progress_bar"
         android:layout_centerHorizontal="true"
-        style="@style/evaluated_loading_text"
+        style="@style/text.title"
+        android:layout_marginBottom="@dimen/pfi_32dp"
         android:text="@string/loading_exam"/>
 
     <ProgressBar

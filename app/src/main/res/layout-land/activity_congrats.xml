@@ -35,6 +35,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             style="@style/text.title"
+            android:layout_marginTop="@dimen/pfi_32dp"
             tools:text="@string/congrats_title"/>
 
         <TextView
@@ -43,6 +44,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             style="@style/text.subtitle"
+            android:layout_marginTop="@dimen/pfi_32dp"
             tools:text="Subtitulo"/>
 
         <FrameLayout

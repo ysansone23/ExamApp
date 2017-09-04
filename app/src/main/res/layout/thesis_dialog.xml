@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        style="@style/text.title.dialog"
+        style="@style/text.title"
         tools:text="Titulo"/>
 
     <TextView
