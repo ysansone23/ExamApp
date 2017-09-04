@@ -5,16 +5,19 @@
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:layout_gravity="center"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    tools:ignore="RtlHardcoded">
 
     <ImageView
+        android:padding="@dimen/pfi_24dp"
+        android:layout_marginLeft="25dp"
         android:layout_gravity="center"
         android:id="@+id/evaluated_congrats_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@null"
-        android:src="@drawable/ilus_internet"
-        tools:src="@drawable/ilus_internet"/>
+        tools:src="@drawable/ilus_congrats"
+        tools:ignore="RtlHardcoded"/>
 
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -23,6 +26,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center_horizontal"
+        android:layout_marginLeft="10dp"
         android:padding="@dimen/pfi_20dp">
 
         <TextView
@@ -45,6 +49,8 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
+            android:layout_marginLeft="@dimen/pfi_10dp"
+            android:layout_marginRight="@dimen/pfi_10dp"
             android:layout_gravity="center">
             <Button
                 android:layout_gravity="center"

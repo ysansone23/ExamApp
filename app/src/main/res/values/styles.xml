@@ -27,7 +27,7 @@
     <!--General-->
     <style name="text">
         <item name="android:gravity">center</item>
-        <item name="android:fontFamily">open-sans-serif-light</item>
+        <item name="android:fontFamily">sans-serif-light</item>
     </style>
 
     <style name="text.title">
@@ -50,6 +50,7 @@
 
     <style name="button.stroke">
         <item name="android:background">@drawable/stroke_button_shape</item>
+        <item name="android:textColor">@color/color_primary_dark</item>
     </style>
 
     <!--Evaluated-->
