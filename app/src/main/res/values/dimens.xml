@@ -12,5 +12,6 @@
     <dimen name="pfi_16dp">16dp</dimen>
     <dimen name="pfi_20dp">20dp</dimen>
     <dimen name="pfi_24dp">24dp</dimen>
+    <dimen name="pfi_28dp">28dp</dimen>
     <dimen name="pfi_32dp">32dp</dimen>
 </resources>

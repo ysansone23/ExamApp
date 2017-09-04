@@ -1,14 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
+              android:layout_height="match_parent"
+              android:gravity="center_horizontal"
+              android:padding="@dimen/pfi_20dp">
 
-    <TextView
+    <ImageView
+        android:id="@+id/evaluated_congrats_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_gravity="center"
-        android:text="@string/congrats_title"/>
+        android:layout_marginTop="@dimen/pfi_28dp"
+        android:contentDescription="@null"
+        tools:src="@drawable/ilus_internet"/>
 
+    <TextView
+        android:id="@+id/evaluated_congrats_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        style="@style/text.title"
+        tools:text="@string/congrats_title"/>
+
+    <TextView
+        android:id="@+id/evaluated_congrats_subtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        style="@style/text.subtitle"
+        tools:text="Subtitulo"/>
+
+    <Button
+        android:id="@+id/evaluated_congrats_action"
+        style="@style/button.stroke"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/pfi_28dp"
+        tools:text="Boton"/>
 </LinearLayout>

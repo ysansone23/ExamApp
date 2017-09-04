@@ -29,6 +29,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:text="Boton"
-        style="@style/base_button"/>
+        style="@style/button"/>
 
 </LinearLayout>
