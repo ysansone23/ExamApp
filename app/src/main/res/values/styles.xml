@@ -31,12 +31,12 @@
     </style>
 
     <style name="text.title">
-        <item name="android:textSize">@dimen/pfi_text_18sp</item>
+        <item name="android:textSize">@dimen/pfi_title_text</item>
         <item name="android:layout_marginTop">@dimen/pfi_32dp</item>
     </style>
 
     <style name="text.subtitle">
-        <item name="android:textSize">@dimen/pfi_text_14sp</item>
+        <item name="android:textSize">@dimen/pfi_subtitle_text</item>
         <item name="android:layout_marginTop">@dimen/pfi_32dp</item>
     </style>
 

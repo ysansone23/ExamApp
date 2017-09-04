@@ -5,6 +5,9 @@
     <dimen name="pfi_text_16sp">16sp</dimen>
     <dimen name="pfi_text_18sp">18sp</dimen>
 
+    <dimen name="pfi_title_text">22sp</dimen>
+    <dimen name="pfi_subtitle_text">16sp</dimen>
+
     <!--General-->
     <dimen name="pfi_1dp">1dp</dimen>
     <dimen name="pfi_4dp">4dp</dimen>
