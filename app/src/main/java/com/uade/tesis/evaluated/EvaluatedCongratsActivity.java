@@ -32,9 +32,9 @@ public class EvaluatedCongratsActivity extends AppCompatActivity {
         final Button action = (Button) findViewById(R.id.evaluated_congrats_action);
 
         //TODO image.setImageDrawable();
-        title.setText("Titulo");
-        subtitle.setText("Subtitulo");
-        action.setText("Botón");
+        title.setText("¡Tu examen fue enviado!");
+        subtitle.setText("Por consultas dirigite a tu profesor");
+        action.setText("Aceptar");
         action.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
