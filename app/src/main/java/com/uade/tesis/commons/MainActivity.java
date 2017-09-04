@@ -8,6 +8,7 @@ import android.view.View;
 import com.uade.tesis.R;
 import com.uade.tesis.evaluated.DecoderActivity;
 import com.uade.tesis.evaluated.EvaluatedCongratsActivity;
+import com.uade.tesis.evaluated.ExamWebViewActivity;
 import com.uade.tesis.evaluated.utils.EvaluatedWelcomeDialog;
 
 public class MainActivity extends AppCompatActivity {
@@ -31,6 +32,11 @@ public class MainActivity extends AppCompatActivity {
     public void showCongrats(final View view) {
         final Intent congrats = EvaluatedCongratsActivity.getIntent(this);
         startActivity(congrats);
+    }
+
+    public void startWebView(final View view) {
+        final Intent webView = ExamWebViewActivity.getIntent(this, "http://google.com");
+        startActivity(webView);
     }
 }
 
