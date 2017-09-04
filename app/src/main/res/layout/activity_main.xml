@@ -47,4 +47,17 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/pfi_1dp"
         android:background="@color/color_primary_dark"/>
+
+    <Button
+        android:id="@+id/button4"
+        style="@style/button"
+        android:onClick="startWebView"
+        android:gravity="center|left"
+        android:text="Web View"
+        tools:ignore="RtlHardcoded"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/pfi_1dp"
+        android:background="@color/color_primary_dark"/>
 </LinearLayout>

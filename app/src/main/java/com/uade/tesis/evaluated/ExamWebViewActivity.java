@@ -32,9 +32,9 @@ public class ExamWebViewActivity extends AppCompatActivity {
 
     private MenuItem timerText;
 
-    public static Intent getIntent(@NonNull final Context context, final String text) {
+    public static Intent getIntent(@NonNull final Context context, final String url) {
         final Intent intent = new Intent(context, ExamWebViewActivity.class);
-        intent.putExtra(URL, text);
+        intent.putExtra(URL, url);
         return intent;
     }
 
