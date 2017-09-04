@@ -9,7 +9,7 @@
 
     <Button
         android:id="@+id/button"
-        style="@style/base_button"
+        style="@style/button"
         android:onClick="startEvaluated"
         android:gravity="center|left"
         android:text="@string/evaluado_button"
@@ -23,7 +23,7 @@
     <Button
         android:id="@+id/button2"
         android:layout_marginTop="@dimen/pfi_20dp"
-        style="@style/base_button"
+        style="@style/button"
         android:onClick="startModal"
         android:gravity="center|left"
         android:text="Modal"
@@ -34,4 +34,17 @@
         android:layout_height="@dimen/pfi_1dp"
         android:background="@color/color_primary_dark"/>
 
+    <Button
+        android:id="@+id/button3"
+        android:layout_marginTop="@dimen/pfi_20dp"
+        style="@style/button"
+        android:onClick="showCongrats"
+        android:gravity="center|left"
+        android:text="Congrats"
+        tools:ignore="RtlHardcoded"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/pfi_1dp"
+        android:background="@color/color_primary_dark"/>
 </LinearLayout>

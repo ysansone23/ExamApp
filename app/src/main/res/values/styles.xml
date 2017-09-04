@@ -25,10 +25,31 @@
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
 
     <!--General-->
-    <style name="button" parent="Widget.AppCompat.Button.Borderless">
-        <item name="android:background">@drawable/base_button_ripple</item>
+    <style name="text">
+        <item name="android:gravity">center</item>
+        <item name="android:fontFamily">open-sans-serif-light</item>
+    </style>
+
+    <style name="text.title">
+        <item name="android:textSize">@dimen/pfi_text_18sp</item>
+        <item name="android:layout_marginTop">@dimen/pfi_32dp</item>
+    </style>
+
+    <style name="text.subtitle">
         <item name="android:textSize">@dimen/pfi_text_14sp</item>
-        <item name="android:layout_marginTop">@dimen/pfi_16dp</item>
+        <item name="android:layout_marginTop">@dimen/pfi_32dp</item>
+    </style>
+
+    <style name="button">
+        <item name="android:background">@drawable/base_button_ripple</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textSize">@dimen/pfi_text_16sp</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+
+    <style name="button.stroke">
+        <item name="android:background">@drawable/stroke_button_shape</item>
     </style>
 
     <!--Evaluated-->
@@ -49,13 +70,6 @@
     <style name="dialog_subtitle">
         <item name="android:textSize">@dimen/pfi_text_14sp</item>
         <item name="android:layout_marginTop">@dimen/pfi_10dp</item>
-    </style>
-
-    <style name="base_button">
-        <item name="android:background">@drawable/base_button_ripple</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:textSize">@dimen/pfi_text_16sp</item>
     </style>
 
 </resources>
