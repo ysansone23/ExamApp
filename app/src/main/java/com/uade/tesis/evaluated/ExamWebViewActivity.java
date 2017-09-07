@@ -25,6 +25,7 @@ public class ExamWebViewActivity extends AppCompatActivity {
     private static final int TIMER_DURATION_HOURS = 4;
 
     private String url;
+    private boolean hasError;
     private ProgressBar progressBar;
     private TextView progressBarTitle;
     private WebView webView;
@@ -124,6 +125,7 @@ public class ExamWebViewActivity extends AppCompatActivity {
         builder.append(hours).append(":00:00");
 
         timerText.setTitle(builder.toString());
+        timerText.setVisible(false);
         return true;
     }
 
@@ -146,30 +148,35 @@ public class ExamWebViewActivity extends AppCompatActivity {
        return new EvaluatedWebViewClient.WebViewActions() {
             @Override
             public void onPageStarted() {
+                hasError = false;
                 showProgressBar(true);
             }
 
             @Override
             public void onReceivedError(final boolean isNetworkingError) {
                 showErrorScreen(isNetworkingError);
+                hasError = true;
             }
 
             @Override
             public void onPageFinished() {
-                final int duration = TIMER_DURATION_HOURS * 3600 /*seconds*/ * 1000 /*ms*/;
-                /*We have to set a 1000ms interval so that it changes after one minute*/
-                final int interval = 1000;
-                new EvaluatedTimer(duration, interval, timerText, getApplicationContext(),
-                    new EvaluatedTimer.TimerActions() {
-                        @Override
-                        public void onFinish() {
-                            if (FINISH_TIME.equals(timerText.getTitle())) {
-                                webView.loadUrl(
-                                    "javascript:(function(){document.getElementById('ss-submit').click();})()");
-                                showCongrats();
+                if (!hasError) {
+                    timerText.setVisible(true);
+                    final int duration = TIMER_DURATION_HOURS * 3600 /*seconds*/ * 1000 /*ms*/;
+                    /*We have to set a 1000ms interval so that it changes after one minute*/
+                    final int interval = 1000;
+                    new EvaluatedTimer(duration, interval, timerText, getApplicationContext(),
+                        new EvaluatedTimer.TimerActions() {
+                            @Override
+                            public void onFinish() {
+                                if (FINISH_TIME.equals(timerText.getTitle())) {
+                                    webView.loadUrl(
+                                        "javascript:(function(){document.getElementById('ss-submit').click();})()");
+                                    showCongrats();
+                                }
                             }
-                        }
-                    }).start();
+                        }).start();
+                }
             }
 
             @Override
