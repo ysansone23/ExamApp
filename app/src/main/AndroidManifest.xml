@@ -37,6 +37,11 @@
             android:name=".evaluated.EvaluatedCongratsActivity"
             android:launchMode="singleInstance">
         </activity>
+        <activity
+            android:name=".commons.EvaluatedMenuActivity"
+            android:launchMode="singleInstance">
+        </activity>
+
     </application>
 
 </manifest>

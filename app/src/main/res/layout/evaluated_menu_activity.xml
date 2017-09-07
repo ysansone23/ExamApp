@@ -8,11 +8,10 @@
     android:orientation="vertical">
 
     <Button
-        android:id="@+id/button"
         style="@style/button"
-        android:onClick="startEvaluated"
+        android:onClick="scan"
         android:gravity="center|left"
-        android:text="@string/evaluado_button"
+        android:text="Escanear"
         tools:ignore="RtlHardcoded"/>
 
     <View
@@ -21,12 +20,11 @@
         android:background="@color/color_primary_dark"/>
 
     <Button
-        android:id="@+id/button2"
         android:layout_marginTop="@dimen/pfi_20dp"
         style="@style/button"
-        android:onClick="startTeacher"
+        android:onClick="startModal"
         android:gravity="center|left"
-        android:text="Evaluador"
+        android:text="Modal"
         tools:ignore="RtlHardcoded"/>
 
     <View
@@ -34,4 +32,29 @@
         android:layout_height="@dimen/pfi_1dp"
         android:background="@color/color_primary_dark"/>
 
+    <Button
+        android:layout_marginTop="@dimen/pfi_20dp"
+        style="@style/button"
+        android:onClick="showCongrats"
+        android:gravity="center|left"
+        android:text="Congrats"
+        tools:ignore="RtlHardcoded"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/pfi_1dp"
+        android:background="@color/color_primary_dark"/>
+
+    <Button
+        style="@style/button"
+        android:layout_marginTop="@dimen/pfi_20dp"
+        android:onClick="startWebView"
+        android:gravity="center|left"
+        android:text="Web View"
+        tools:ignore="RtlHardcoded"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/pfi_1dp"
+        android:background="@color/color_primary_dark"/>
 </LinearLayout>
