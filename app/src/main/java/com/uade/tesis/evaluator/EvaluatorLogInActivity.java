@@ -11,7 +11,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import com.uade.tesis.R;
-import com.uade.tesis.evaluator.assignments.AssignmentsActivity;
 
 public class EvaluatorLogInActivity extends AppCompatActivity {
 

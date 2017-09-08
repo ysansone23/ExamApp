@@ -43,7 +43,7 @@
             android:name=".evaluator.EvaluatorLogInActivity"/>
 
         <activity
-            android:name=".evaluator.assignments.AssignmentsActivity"/>
+            android:name=".evaluator.AssignmentsActivity"/>
 
     </application>
 

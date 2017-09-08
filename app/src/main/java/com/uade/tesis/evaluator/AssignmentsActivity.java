@@ -1,4 +1,4 @@
-package com.uade.tesis.evaluator.assignments;
+package com.uade.tesis.evaluator;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
