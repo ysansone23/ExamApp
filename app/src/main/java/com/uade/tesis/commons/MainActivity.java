@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import com.uade.tesis.R;
+import com.uade.tesis.evaluated.EvaluatedMenuActivity;
+import com.uade.tesis.evaluator.EvaluatorLogInActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void startTeacher(final View view) {
+        final Intent intent = new Intent(MainActivity.this, EvaluatorLogInActivity.class);
+        startActivity(intent);
     }
 }
 

@@ -26,21 +26,20 @@
         <!-- Activities -->
         <activity
             android:name=".evaluated.DecoderActivity"
-            android:launchMode="singleInstance">
-        </activity>
+            android:launchMode="singleInstance"/>
         <activity
             android:name=".evaluated.ExamWebViewActivity"
             android:configChanges="orientation|screenSize"
-            android:launchMode="singleInstance">
-        </activity>
+            android:launchMode="singleInstance"/>
         <activity
             android:name=".evaluated.EvaluatedCongratsActivity"
-            android:launchMode="singleInstance">
-        </activity>
+            android:launchMode="singleInstance"/>
         <activity
-            android:name=".commons.EvaluatedMenuActivity"
-            android:launchMode="singleInstance">
-        </activity>
+            android:name=".evaluated.EvaluatedMenuActivity"
+            android:launchMode="singleInstance"/>
+        <activity
+            android:name=".evaluator.EvaluatorLogInActivity"
+            android:launchMode="singleInstance"/>
 
     </application>
 

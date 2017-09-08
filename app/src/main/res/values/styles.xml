@@ -26,7 +26,6 @@
 
     <!--General-->
     <style name="text">
-        <item name="android:gravity">center</item>
         <item name="android:fontFamily">sans-serif-light</item>
     </style>
 

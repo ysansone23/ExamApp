@@ -12,6 +12,7 @@
         android:layout_above="@+id/evaluado_web_view_progress_bar"
         android:layout_centerHorizontal="true"
         style="@style/text.title"
+        android:gravity="center"
         android:layout_marginBottom="@dimen/pfi_32dp"
         android:text="@string/loading_exam"/>
 

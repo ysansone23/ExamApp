@@ -1,4 +1,4 @@
-package com.uade.tesis.commons;
+package com.uade.tesis.evaluated;
 
 import android.Manifest;
 import android.content.Intent;
@@ -7,12 +7,10 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import com.uade.tesis.R;
-import com.uade.tesis.evaluated.DecoderActivity;
-import com.uade.tesis.evaluated.EvaluatedCongratsActivity;
-import com.uade.tesis.evaluated.ExamWebViewActivity;
 import com.uade.tesis.evaluated.utils.EvaluatedWelcomeDialog;
 
 public class EvaluatedMenuActivity extends AppCompatActivity {
@@ -22,6 +20,10 @@ public class EvaluatedMenuActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        final ActionBar supportActionBar = getSupportActionBar();
+        if (supportActionBar != null) {
+            supportActionBar.setTitle("Evaluado");
+        }
         setContentView(R.layout.evaluated_menu_activity);
     }
 

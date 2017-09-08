@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/pfi_24dp"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/log_in_user"
+        android:labelFor="@+id/log_in_user"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textWebEmailAddress"
+        style="@style/text.subtitle"
+        />
+
+    <EditText
+        android:id="@+id/log_in_password"
+        android:labelFor="@+id/log_in_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/pfi_24dp"
+        android:inputType="textPassword"
+        style="@style/text.subtitle"/>
+
+    <Button
+        android:id="@+id/log_in_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/pfi_32dp"
+        android:text="Iniciar Sesión"
+        style="@style/button.stroke"/>
+
+</LinearLayout>
