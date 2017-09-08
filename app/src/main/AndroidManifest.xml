@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".commons.MainActivity"
-                  android:launchMode="singleInstance">
+                  >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -27,19 +27,23 @@
         <activity
             android:name=".evaluated.DecoderActivity"
             android:launchMode="singleInstance"/>
+
         <activity
             android:name=".evaluated.ExamWebViewActivity"
             android:configChanges="orientation|screenSize"
             android:launchMode="singleInstance"/>
+
         <activity
-            android:name=".evaluated.EvaluatedCongratsActivity"
-            android:launchMode="singleInstance"/>
+            android:name=".evaluated.EvaluatedCongratsActivity"/>
+
         <activity
-            android:name=".evaluated.EvaluatedMenuActivity"
-            android:launchMode="singleInstance"/>
+            android:name=".evaluated.EvaluatedMenuActivity"/>
+
         <activity
-            android:name=".evaluator.EvaluatorLogInActivity"
-            android:launchMode="singleInstance"/>
+            android:name=".evaluator.EvaluatorLogInActivity"/>
+
+        <activity
+            android:name=".evaluator.assignments.AssignmentsActivity"/>
 
     </application>
 
