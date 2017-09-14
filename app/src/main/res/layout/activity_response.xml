@@ -1,7 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:background="@color/white">
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/evaluado_progress_bar_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/evaluado_web_view_progress_bar"
+        android:layout_centerHorizontal="true"
+        style="@style/text.title"
+        android:gravity="center"
+        android:layout_marginBottom="@dimen/pfi_32dp"
+        android:text="@string/loading_exam"/>
+
+    <ProgressBar
+        android:id="@+id/evaluado_web_view_progress_bar"
+        style="@style/Base.Widget.AppCompat.ProgressBar"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerInParent="true"/>
+
+    <LinearLayout
+        android:id="@+id/evaluado_form_web_view"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <WebView
+            android:id="@+id/response_web_view"
+            android:layout_weight="1"
+            android:visibility="gone"
+            android:padding="0dp"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"/>
+
+        <LinearLayout
+            android:minHeight="50dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_gravity="bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/text.subtitle"
+                android:text="Nota:"/>
+
+            <EditText
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/pfi_4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="70dp"
+                style="@style/text.subtitle"
+                android:inputType="numberDecimal"
+                tools:ignore="LabelFor,RtlHardcoded"/>
+
+            <Button
+                android:layout_marginLeft="30dp"
+                android:layout_gravity="end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Enviar"
+                style="@style/button.small"
+                tools:ignore="RtlHardcoded"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/evaluated_error_view_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</RelativeLayout>
+

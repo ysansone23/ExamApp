@@ -24,6 +24,7 @@ public class ResponseActivity extends AppCompatActivity {
     private static final String URL = "url";
     private String name = null;
     private WebView webView;
+    private View webViewContainer;
     private TextView progressBarText;
     private ProgressBar progressBar;
     private ViewGroup errorContainer;
@@ -38,12 +39,13 @@ public class ResponseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_evaluado);
+        setContentView(R.layout.activity_response);
         final ActionBar supportActionBar = getSupportActionBar();
         if (supportActionBar != null) {
             supportActionBar.setTitle(getIntent().getStringExtra(TITLE));
         }
-        webView = (WebView) findViewById(R.id.evaluado_form_web_view);
+        webViewContainer = findViewById(R.id.evaluado_form_web_view);
+        webView = (WebView) findViewById(R.id.response_web_view);
         progressBarText = (TextView) findViewById(R.id.evaluado_progress_bar_text);
         progressBar = (ProgressBar) findViewById(R.id.evaluado_web_view_progress_bar);
         errorContainer = (ViewGroup) findViewById(R.id.evaluated_error_view_container);
@@ -62,7 +64,7 @@ public class ResponseActivity extends AppCompatActivity {
             public void onPageStarted() {
                 progressBarText.setVisibility(View.VISIBLE);
                 progressBar.setVisibility(View.VISIBLE);
-                webView.setVisibility(View.GONE);
+                webViewContainer.setVisibility(View.GONE);
                 errorContainer.setVisibility(View.GONE);
             }
 
@@ -70,7 +72,7 @@ public class ResponseActivity extends AppCompatActivity {
             public void onReceivedError(final boolean isNetworkingError) {
                 progressBarText.setVisibility(View.GONE);
                 progressBar.setVisibility(View.GONE);
-                webView.setVisibility(View.GONE);
+                webViewContainer.setVisibility(View.GONE);
                 errorContainer.setVisibility(View.VISIBLE);
                 showError(isNetworkingError);
             }
@@ -79,7 +81,7 @@ public class ResponseActivity extends AppCompatActivity {
             public void onPageFinished() {
                 progressBarText.setVisibility(View.GONE);
                 progressBar.setVisibility(View.GONE);
-                webView.setVisibility(View.VISIBLE);
+                webViewContainer.setVisibility(View.VISIBLE);
                 errorContainer.setVisibility(View.GONE);
                 name = "Nueva materia";
             }
@@ -97,7 +99,7 @@ public class ResponseActivity extends AppCompatActivity {
             public void retry() {
                 webView.loadUrl(getIntent().getStringExtra(URL));
                 errorContainer.setVisibility(View.GONE);
-                webView.setVisibility(View.GONE);
+                webViewContainer.setVisibility(View.GONE);
             }
 
             @Override

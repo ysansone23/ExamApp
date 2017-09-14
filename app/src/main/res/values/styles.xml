@@ -50,6 +50,10 @@
         <item name="android:background">@drawable/stroke_button_shape</item>
     </style>
 
+    <style name="button.small">
+        <item name="android:textSize">@dimen/pfi_subtitle_text</item>
+    </style>
+
     <!--Dialog-->
     <style name="text.subtitle.dialog">
         <item name="android:textSize">@dimen/pfi_subtitle_text</item>
