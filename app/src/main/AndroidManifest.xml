@@ -38,7 +38,8 @@
         <activity android:name=".evaluated.EvaluatedCongratsActivity"/>
         <activity android:name=".evaluated.EvaluatedMenuActivity"/>
         <activity android:name=".evaluator.EvaluatorLogInActivity"/>
-        <activity android:name=".evaluator.ResponseActivity"/>
+        <activity android:name=".evaluator.ResponseActivity"
+            android:configChanges="orientation|screenSize"/>
 
     </application>
 
