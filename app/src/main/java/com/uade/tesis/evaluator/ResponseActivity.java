@@ -1,5 +1,6 @@
 package com.uade.tesis.evaluator;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +8,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
@@ -19,15 +21,16 @@ import com.uade.tesis.evaluated.utils.EvaluatedWebViewClient;
 public class ResponseActivity extends AppCompatActivity {
 
     private static final String TITLE = "title";
-    private static final String URL = "http://google.com";
-    private EvaluatedWebViewClient.WebViewActions clientActions;
+    private static final String URL = "url";
+    private String name = null;
     private WebView webView;
     private TextView progressBarText;
     private ProgressBar progressBar;
     private ViewGroup errorContainer;
 
-    public static Intent getIntent(@NonNull final Context context, final String title) {
+    public static Intent getIntent(@NonNull final Context context, final String title, final String url) {
         final Intent intent = new Intent(context, ResponseActivity.class);
+        intent.putExtra(URL, url);
         intent.putExtra(TITLE, title);
         return intent;
     }
@@ -50,7 +53,7 @@ public class ResponseActivity extends AppCompatActivity {
 
     private void setUpView() {
         webView.setWebViewClient(new EvaluatedWebViewClient(getClientActions()));
-        webView.loadUrl(URL);
+        webView.loadUrl(getIntent().getStringExtra(URL));
     }
 
     public EvaluatedWebViewClient.WebViewActions getClientActions() {
@@ -78,6 +81,7 @@ public class ResponseActivity extends AppCompatActivity {
                 progressBar.setVisibility(View.GONE);
                 webView.setVisibility(View.VISIBLE);
                 errorContainer.setVisibility(View.GONE);
+                name = "Nueva materia";
             }
 
             @Override
@@ -91,7 +95,7 @@ public class ResponseActivity extends AppCompatActivity {
         final EvaluatedErrorView.ErrorViewActions errorViewActions = new EvaluatedErrorView.ErrorViewActions() {
             @Override
             public void retry() {
-                webView.loadUrl(URL);
+                webView.loadUrl(getIntent().getStringExtra(URL));
                 errorContainer.setVisibility(View.GONE);
                 webView.setVisibility(View.GONE);
             }
@@ -113,6 +117,11 @@ public class ResponseActivity extends AppCompatActivity {
         if (webView.canGoBack()) {
             webView.goBack();
         } else {
+            final Intent intent = new Intent();
+            if (!TextUtils.isEmpty(name)) {
+                intent.putExtra("name", name);
+            }
+            setResult(Activity.RESULT_OK, intent);
             super.onBackPressed();
         }
     }

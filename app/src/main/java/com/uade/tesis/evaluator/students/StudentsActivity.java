@@ -31,6 +31,7 @@ public class StudentsActivity extends AppCompatActivity implements BaseButtonsAd
     protected void onCreate(@Nullable final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.buttons_list);
+        findViewById(R.id.buttons_list_fab).setVisibility(View.GONE);
 
         final ActionBar supportActionBar = getSupportActionBar();
         if (supportActionBar != null) {
@@ -64,7 +65,7 @@ public class StudentsActivity extends AppCompatActivity implements BaseButtonsAd
 
     @Override
     public void onButtonClick(final String title) {
-        final Intent intent = ResponseActivity.getIntent(this, title);
+        final Intent intent = ResponseActivity.getIntent(this, title, "http://google.com");
         startActivity(intent);
     }
 }
