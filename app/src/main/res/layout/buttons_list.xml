@@ -15,6 +15,9 @@
         android:id="@+id/buttons_list_fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/color_secondary"
+        android:layout_margin="10dp"
+        android:src="@drawable/icon_fab_add"
         android:layout_gravity="bottom|end"/>
 
 </FrameLayout>
