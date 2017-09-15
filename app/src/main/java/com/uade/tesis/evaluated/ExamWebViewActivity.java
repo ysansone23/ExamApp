@@ -106,8 +106,12 @@ public class ExamWebViewActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        //TODO comment super to stop back action
-        super.onBackPressed();
+        if (webView.canGoBack()) {
+            webView.goBack();
+        } else {
+            //TODO sacar
+            super.onBackPressed();
+        }
     }
 
     /* Timer */
