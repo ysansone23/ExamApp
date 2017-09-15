@@ -81,7 +81,7 @@ public class AssignmentsActivity extends AppCompatActivity implements BaseButton
             @Override
             public void onClick(final View v) {
                 final Intent intent = ResponseActivity.getIntent(AssignmentsActivity.this, "Nuevo Examen",
-                    "https://www.google.com/intl/es-419_ar/forms/about/");
+                    "https://docs.google.com/forms/u/0/");
                 startActivityForResult(intent, NEW_ASSIGNMENT);
             }
         });

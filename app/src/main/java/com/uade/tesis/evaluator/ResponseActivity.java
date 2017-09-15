@@ -44,6 +44,7 @@ public class ResponseActivity extends AppCompatActivity {
         if (supportActionBar != null) {
             supportActionBar.setTitle(getIntent().getStringExtra(TITLE));
         }
+        findViewById(R.id.note_container).setVisibility(View.GONE);
         webViewContainer = findViewById(R.id.evaluado_form_web_view);
         webView = (WebView) findViewById(R.id.response_web_view);
         progressBarText = (TextView) findViewById(R.id.evaluado_progress_bar_text);
