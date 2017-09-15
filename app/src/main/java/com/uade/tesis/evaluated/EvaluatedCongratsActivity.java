@@ -16,8 +16,14 @@ import com.uade.tesis.commons.MainActivity;
 
 public class EvaluatedCongratsActivity extends AppCompatActivity {
 
-    public static Intent getIntent(final Context context) {
-        return new Intent(context, EvaluatedCongratsActivity.class);
+    private static final String TITLE = "title";
+    private static final String SUBTITLE = "subtitle";
+
+    public static Intent getIntent(final Context context, final String title, final String subtitle) {
+        final Intent intent = new Intent(context, EvaluatedCongratsActivity.class);
+        intent.putExtra(TITLE, title);
+        intent.putExtra(SUBTITLE, subtitle);
+        return intent;
     }
 
     @Override
@@ -41,8 +47,8 @@ public class EvaluatedCongratsActivity extends AppCompatActivity {
 
         final Drawable drawable = getResources().getDrawable(R.drawable.ilus_congrats, getTheme());
         image.setImageDrawable(drawable);
-        title.setText("¡Tu examen fue enviado!");
-        subtitle.setText("Por consultas dirigite a tu profesor");
+        title.setText(getIntent().getStringExtra(TITLE));
+        subtitle.setText(getIntent().getStringExtra(SUBTITLE));
         action.setText("Aceptar");
         action.setOnClickListener(new View.OnClickListener() {
             @Override

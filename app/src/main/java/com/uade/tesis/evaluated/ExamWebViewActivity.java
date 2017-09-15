@@ -145,7 +145,8 @@ public class ExamWebViewActivity extends AppCompatActivity {
     }
 
     private void showCongrats() {
-        startActivity(EvaluatedCongratsActivity.getIntent(ExamWebViewActivity.this));
+        startActivity(EvaluatedCongratsActivity.getIntent(ExamWebViewActivity.this, "¡Tu examen fue enviado!",
+            "Por consultas dirigite a tu profesor"));
         finish();
     }
 

@@ -45,7 +45,8 @@ public class EvaluatedMenuActivity extends AppCompatActivity {
     }
 
     public void showCongrats(final View view) {
-        final Intent congrats = EvaluatedCongratsActivity.getIntent(this);
+        final Intent congrats = EvaluatedCongratsActivity.getIntent(this, "¡Tu examen fue enviado!",
+            "Por consultas dirigite a tu profesor");
         startActivity(congrats);
     }
 

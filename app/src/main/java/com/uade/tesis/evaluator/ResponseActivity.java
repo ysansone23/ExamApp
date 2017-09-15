@@ -12,9 +12,12 @@ import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
+import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 import com.uade.tesis.R;
+import com.uade.tesis.evaluated.EvaluatedCongratsActivity;
 import com.uade.tesis.evaluated.utils.EvaluatedErrorView;
 import com.uade.tesis.evaluated.utils.EvaluatedWebViewClient;
 
@@ -22,6 +25,8 @@ public class ResponseActivity extends AppCompatActivity {
 
     private static final String TITLE = "title";
     private static final String URL = "url";
+    private static final String SHOULD_SHOW_GRADE = "should_show";
+
     private String name = null;
     private WebView webView;
     private View webViewContainer;
@@ -29,10 +34,12 @@ public class ResponseActivity extends AppCompatActivity {
     private ProgressBar progressBar;
     private ViewGroup errorContainer;
 
-    public static Intent getIntent(@NonNull final Context context, final String title, final String url) {
+    public static Intent getIntent(@NonNull final Context context, final String title, final String url,
+        final boolean shouldShowGrade) {
         final Intent intent = new Intent(context, ResponseActivity.class);
         intent.putExtra(URL, url);
         intent.putExtra(TITLE, title);
+        intent.putExtra(SHOULD_SHOW_GRADE, shouldShowGrade);
         return intent;
     }
 
@@ -44,7 +51,13 @@ public class ResponseActivity extends AppCompatActivity {
         if (supportActionBar != null) {
             supportActionBar.setTitle(getIntent().getStringExtra(TITLE));
         }
-        findViewById(R.id.note_container).setVisibility(View.GONE);
+
+        final boolean shouldShowGrade = getIntent().getBooleanExtra(SHOULD_SHOW_GRADE, false);
+        if (shouldShowGrade) {
+            findViewById(R.id.grade_container).setVisibility(View.VISIBLE);
+        } else {
+            findViewById(R.id.grade_container).setVisibility(View.GONE);
+        }
         webViewContainer = findViewById(R.id.evaluado_form_web_view);
         webView = (WebView) findViewById(R.id.response_web_view);
         progressBarText = (TextView) findViewById(R.id.evaluado_progress_bar_text);
@@ -57,6 +70,21 @@ public class ResponseActivity extends AppCompatActivity {
     private void setUpView() {
         webView.setWebViewClient(new EvaluatedWebViewClient(getClientActions()));
         webView.loadUrl(getIntent().getStringExtra(URL));
+
+        final EditText editText = (EditText) findViewById(R.id.grade_edit);
+        findViewById(R.id.send_grade).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View v) {
+                if (TextUtils.isEmpty(editText.getText())) {
+                    Toast.makeText(ResponseActivity.this, "Debe ingresar una nota", Toast.LENGTH_LONG).show();
+                } else {
+                    startActivity(EvaluatedCongratsActivity.getIntent(ResponseActivity.this, "El examen fue enviado",
+                        null));
+                    finish();
+                }
+            }
+        });
+
     }
 
     public EvaluatedWebViewClient.WebViewActions getClientActions() {

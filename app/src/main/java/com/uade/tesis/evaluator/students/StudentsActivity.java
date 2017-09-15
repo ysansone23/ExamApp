@@ -65,7 +65,7 @@ public class StudentsActivity extends AppCompatActivity implements BaseButtonsAd
 
     @Override
     public void onButtonClick(final String title) {
-        final Intent intent = ResponseActivity.getIntent(this, title, "http://google.com");
+        final Intent intent = ResponseActivity.getIntent(this, title, "http://google.com", true);
         startActivity(intent);
     }
 }
