@@ -15,7 +15,7 @@
         style="@style/text.title"
         android:gravity="center"
         android:layout_marginBottom="@dimen/pfi_32dp"
-        android:text="@string/loading_exam"/>
+        android:text="Cargando"/>
 
     <ProgressBar
         android:id="@+id/evaluado_web_view_progress_bar"
