@@ -7,8 +7,8 @@ import android.graphics.PointF;
 import android.os.Bundle;
 import com.dlazaro66.qrcodereaderview.QRCodeReaderView;
 import com.uade.tesis.R;
+import com.uade.tesis.commons.utils.ThesisDialog;
 import com.uade.tesis.evaluated.model.DialogEvent;
-import com.uade.tesis.evaluated.utils.EvaluatedWelcomeDialog;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
@@ -108,14 +108,14 @@ public class DecoderActivity extends Activity implements QRCodeReaderView.OnQRCo
             qrCodeReaderView.setQRDecodingEnabled(false);
         }
 
-        final EvaluatedWelcomeDialog welcomeDialog = new EvaluatedWelcomeDialog(this);
+        final ThesisDialog welcomeDialog = new ThesisDialog(this);
         welcomeDialog.show();
         isDialogShowing = true;
     }
 
     /* Events */
     /**
-     * Event handling method used to manage the dismiss of the {@link EvaluatedWelcomeDialog}
+     * Event handling method used to manage the dismiss of the {@link ThesisDialog}
      */
     @Subscribe
     @SuppressWarnings("unused")

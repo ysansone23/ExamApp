@@ -15,6 +15,7 @@ import android.webkit.WebView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.uade.tesis.R;
+import com.uade.tesis.commons.utils.ThesisDialog;
 import com.uade.tesis.evaluated.utils.EvaluatedErrorView;
 import com.uade.tesis.evaluated.utils.EvaluatedTimer;
 import com.uade.tesis.evaluated.utils.EvaluatedWebViewClient;
@@ -27,6 +28,7 @@ public class ExamWebViewActivity extends AppCompatActivity {
 
     private String url;
     private boolean hasError;
+    private boolean goBack = true;
     private ProgressBar progressBar;
     private TextView progressBarTitle;
     private WebView webView;
@@ -108,8 +110,13 @@ public class ExamWebViewActivity extends AppCompatActivity {
     public void onBackPressed() {
         if (webView.canGoBack()) {
             webView.goBack();
+        } else if(goBack) {
+            final ThesisDialog dialog = new ThesisDialog(ExamWebViewActivity.this);
+            dialog.setUpView("¡Estas por salir!", "Si salis de la aplicacion el examen será enviado");
+            dialog.show();
+            goBack = false;
         } else {
-            //TODO sacar
+            sendExam();
             super.onBackPressed();
         }
     }
@@ -180,8 +187,7 @@ public class ExamWebViewActivity extends AppCompatActivity {
                             @Override
                             public void onFinish() {
                                 if (FINISH_TIME.equals(timerText.getTitle())) {
-                                    webView.loadUrl(
-                                        "javascript:(function(){document.getElementById('ss-submit').click();})()");
+                                    sendExam();
                                     showCongrats();
                                 }
                             }
@@ -194,5 +200,10 @@ public class ExamWebViewActivity extends AppCompatActivity {
                 showCongrats();
             }
         };
+    }
+
+    private void sendExam() {
+        webView.loadUrl(
+            "javascript:(function(){document.getElementById('ss-submit').click();})()");
     }
 }

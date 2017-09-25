@@ -11,7 +11,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import com.uade.tesis.R;
-import com.uade.tesis.evaluated.utils.EvaluatedWelcomeDialog;
+import com.uade.tesis.commons.utils.ThesisDialog;
 
 public class EvaluatedMenuActivity extends AppCompatActivity {
 
@@ -40,7 +40,8 @@ public class EvaluatedMenuActivity extends AppCompatActivity {
     }
 
     public void startModal(final View view) {
-        final EvaluatedWelcomeDialog welcomeDialog = new EvaluatedWelcomeDialog(this);
+        final ThesisDialog welcomeDialog = new ThesisDialog(this);
+        welcomeDialog.setUpWelcomeDialog();
         welcomeDialog.show();
     }
 
