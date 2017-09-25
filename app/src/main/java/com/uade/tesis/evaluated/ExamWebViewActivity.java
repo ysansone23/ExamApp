@@ -29,6 +29,7 @@ public class ExamWebViewActivity extends AppCompatActivity {
     private String url;
     private boolean hasError;
     private boolean goBack = false;
+    private boolean userLeft = false;
     private ProgressBar progressBar;
     private TextView progressBarTitle;
     private WebView webView;
@@ -206,5 +207,28 @@ public class ExamWebViewActivity extends AppCompatActivity {
     private void sendExam() {
         webView.loadUrl(
             "javascript:(function(){document.getElementById('ss-submit').click();})()");
+    }
+
+    @Override
+    protected void onUserLeaveHint() {
+        sendExam();
+        userLeft = true;
+        super.onUserLeaveHint();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (userLeft) {
+            final ThesisDialog dialog = new ThesisDialog(this);
+            dialog.setUpView("Tu examen fue enviado", "Tu examen fue enviado por haber salido de la aplicación",
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(final View v) {
+                        finish();
+                    }
+                });
+            dialog.show();
+        }
     }
 }
