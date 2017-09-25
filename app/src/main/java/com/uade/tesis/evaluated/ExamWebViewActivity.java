@@ -28,7 +28,7 @@ public class ExamWebViewActivity extends AppCompatActivity {
 
     private String url;
     private boolean hasError;
-    private boolean goBack = true;
+    private boolean goBack = false;
     private ProgressBar progressBar;
     private TextView progressBarTitle;
     private WebView webView;
@@ -178,6 +178,7 @@ public class ExamWebViewActivity extends AppCompatActivity {
             @Override
             public void onPageFinished() {
                 if (!hasError) {
+                    goBack = true;
                     timerText.setVisible(true);
                     final int duration = TIMER_DURATION_HOURS * 3600 /*seconds*/ * 1000 /*ms*/;
                     /*We have to set a 1000ms interval so that it changes after one minute*/
