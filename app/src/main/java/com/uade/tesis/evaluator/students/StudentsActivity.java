@@ -44,13 +44,12 @@ public class StudentsActivity extends AppCompatActivity implements BaseButtonsAd
         recyclerView.setLayoutManager(layoutManager);
 
         final List<String> students = new ArrayList<>();
-        students.add("Agustin Catalano");
-        students.add("Yamila Sansone");
-        students.add("Yanina Barrot");
-        students.add("Emmanuel Castillo de Carvhalo");
-        students.add("Florencia Silvestre");
-        students.add("Alexis Castiglioni");
-        students.add("Bruno Giulianetti");
+        students.add("Juan Martin Alonso");
+        students.add("Lucas Gonzales");
+        students.add("Martina Blanco");
+        students.add("Leonardo Fuentes");
+        students.add("Florencia Martinez");
+        students.add("Maria Regunega");
 
         final List<Button> buttons = new ArrayList<>();
         Button button;
@@ -65,7 +64,8 @@ public class StudentsActivity extends AppCompatActivity implements BaseButtonsAd
 
     @Override
     public void onButtonClick(final String title) {
-        final Intent intent = ResponseActivity.getIntent(this, title, "http://google.com", true);
+        final Intent intent = ResponseActivity.getIntent(this, title,
+            "https://docs.google.com/forms/d/1VEivC8yX6w4BXWVgqRs_LRPVP4hHEd1h6kwxWZx6v7o/edit#response=ACYDBNgnTUoY2i_hb-48E_5qU6NvDO3C9KCzn7svXwtYJVeL7-WBDhlS3-_zdQ", true);
         startActivity(intent);
     }
 }

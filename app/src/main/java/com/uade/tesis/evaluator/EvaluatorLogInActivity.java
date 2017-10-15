@@ -23,7 +23,7 @@ public class EvaluatorLogInActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         final ActionBar supportActionBar = getSupportActionBar();
         if (supportActionBar != null) {
-            supportActionBar.setTitle("Evaluador");
+            supportActionBar.setTitle("Iniciar Sesión");
         }
 
         setContentView(R.layout.activity_log_in);

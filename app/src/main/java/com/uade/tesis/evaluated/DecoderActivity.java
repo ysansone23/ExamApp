@@ -109,6 +109,9 @@ public class DecoderActivity extends Activity implements QRCodeReaderView.OnQRCo
         }
 
         final ThesisDialog welcomeDialog = new ThesisDialog(this);
+        final String title = getResources().getString(R.string.welcome_title);
+        final String subtitle = getResources().getString(R.string.welcome_body);
+        welcomeDialog.setUpView(title, subtitle);
         welcomeDialog.show();
         isDialogShowing = true;
     }

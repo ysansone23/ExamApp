@@ -1,5 +1,6 @@
 package com.uade.tesis.evaluator;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -67,8 +68,10 @@ public class ResponseActivity extends AppCompatActivity {
         setUpView();
     }
 
+    @SuppressLint("SetJavaScriptEnabled")
     private void setUpView() {
         webView.setWebViewClient(new EvaluatedWebViewClient(getClientActions()));
+        webView.getSettings().setJavaScriptEnabled(true);
         webView.loadUrl(getIntent().getStringExtra(URL));
 
         final EditText editText = (EditText) findViewById(R.id.grade_edit);

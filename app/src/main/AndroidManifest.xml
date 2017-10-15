@@ -34,7 +34,8 @@
 
         <activity android:name=".evaluator.assignments.AssignmentsActivity"/>
         <activity android:name=".evaluator.students.StudentsActivity"/>
-        <activity android:name=".evaluated.EvaluatedCongratsActivity"/>
+        <activity android:name=".evaluated.EvaluatedCongratsActivity"
+                  android:launchMode="singleInstance"/>
         <activity android:name=".evaluated.EvaluatedMenuActivity"/>
         <activity android:name=".evaluator.EvaluatorLogInActivity"/>
         <activity android:name=".evaluator.ResponseActivity"

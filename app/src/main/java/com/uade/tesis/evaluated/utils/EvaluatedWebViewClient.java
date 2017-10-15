@@ -17,6 +17,7 @@ public class EvaluatedWebViewClient extends android.webkit.WebViewClient {
     public EvaluatedWebViewClient(final WebViewActions actions) {
         super();
         this.actions = actions;
+
     }
 
     @Override
