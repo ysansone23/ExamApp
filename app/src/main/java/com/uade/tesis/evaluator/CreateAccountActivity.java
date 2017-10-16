@@ -2,6 +2,7 @@ package com.uade.tesis.evaluator;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -14,6 +15,11 @@ public class CreateAccountActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_create_account);
+
+        final ActionBar supportActionBar = getSupportActionBar();
+        if (supportActionBar != null) {
+            supportActionBar.setTitle("Crear Cuenta");
+        }
 
         setUpView();
     }
@@ -28,4 +34,6 @@ public class CreateAccountActivity extends AppCompatActivity {
             }
         });
     }
+
+
 }

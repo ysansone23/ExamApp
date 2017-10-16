@@ -1,55 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="@dimen/pfi_24dp"
->
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_height="match_parent"
+    android:layout_width="match_parent">
 
-    <EditText
-        android:id="@+id/log_in_user"
-        android:labelFor="@+id/log_in_user"
-        android:layout_width="0dp"
+    <android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textWebEmailAddress"
-        style="@style/text.subtitle"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="82dp"/>
+        android:padding="@dimen/pfi_24dp">
 
-    <EditText
-        android:id="@+id/log_in_password"
-        android:labelFor="@+id/log_in_password"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        style="@style/text.subtitle"
-        android:layout_marginTop="10dp"
-        app:layout_constraintTop_toBottomOf="@+id/log_in_user"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
+        <EditText
+            android:id="@+id/log_in_user"
+            android:labelFor="@+id/log_in_user"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:inputType="textWebEmailAddress"
+            style="@style/text.subtitle"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
 
-    <Button
-        android:id="@+id/log_in_button"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Iniciar Sesión"
-        style="@style/button.stroke"
-        android:layout_marginTop="25dp"
-        app:layout_constraintTop_toBottomOf="@+id/log_in_password"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"/>
+        <EditText
+            android:id="@+id/log_in_password"
+            android:labelFor="@+id/log_in_password"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            style="@style/text.subtitle"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/log_in_user"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
 
-    <Button
-        android:id="@+id/create_account_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:text="Crear Cuenta"
-        style="@style/button.stroke"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
+        <Button
+            android:id="@+id/log_in_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Iniciar Sesión"
+            style="@style/button.stroke"
+            android:layout_marginTop="25dp"
+            app:layout_constraintTop_toBottomOf="@+id/log_in_password"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"/>
 
-</android.support.constraint.ConstraintLayout>
+        <Button
+            android:id="@+id/create_account_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="Crear Cuenta"
+            style="@style/button.stroke"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/log_in_button"/>
+
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>
