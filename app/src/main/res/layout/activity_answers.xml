@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+    <LinearLayout
+          android:orientation="vertical"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:padding="@dimen/pfi_24dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/text.subtitle"
+            android:text="¿Qué es una métrica?"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/text.description"
+            android:layout_marginTop="15dp"
+            android:text="medida o conjunto de medidas destinadas a conocer o estimar el tamaño u otra característica de un software o un sistema de información"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/text.description"
+            android:inputType="text"
+            android:hint="Observaciones"
+            tools:ignore="LabelFor"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/text.subtitle"
+            android:layout_marginTop="@dimen/pfi_20dp"
+            android:text="¿Cuál es la diferencia entre validación y verificación?"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/text.description"
+            android:layout_marginTop="15dp"
+            android:text="verificacion busca comprobar que el sistema cumple con los requerimientos especificados validacion busca comprobar que el software hace lo que el usuario espera"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/text.description"
+            android:inputType="text"
+            android:hint="Observaciones"
+            tools:ignore="LabelFor"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/text.subtitle"
+            android:layout_marginTop="@dimen/pfi_20dp"
+            android:text="Nombre componentes de las métricas"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/text.description"
+            android:layout_marginTop="15dp"
+            android:text="Fiabilidad, eficiencia, integridad"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/text.description"
+            android:inputType="text"
+            android:hint="Observaciones"
+            tools:ignore="LabelFor"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/text.subtitle"
+            android:layout_marginTop="@dimen/pfi_20dp"
+            android:text="Explique que interviene en la mejora de procesos"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/text.description"
+            android:layout_marginTop="15dp"
+            android:text="No tiene respuesta"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/text.description"
+            android:inputType="text"
+            android:hint="Observaciones"
+            tools:ignore="LabelFor"/>
+
+        <Button
+            android:id="@+id/answers_action"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_gravity="right"
+            style="@style/button.stroke"
+            android:text="Corregir"/>
+
+    </LinearLayout>
+</ScrollView>

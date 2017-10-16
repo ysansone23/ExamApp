@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="@dimen/pfi_24dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Observaciones generales"
+            android:inputType="text"
+            tools:ignore="LabelFor"/>
+
+        <LinearLayout
+            android:paddingTop="@dimen/pfi_24dp"
+            android:id="@+id/grade_container"
+            android:minHeight="50dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_gravity="bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/text.subtitle"
+                android:text="Nota:"/>
+
+            <EditText
+                android:id="@+id/grade_edit"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/pfi_4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="70dp"
+                style="@style/text.subtitle"
+                android:inputType="numberDecimal"
+                tools:ignore="LabelFor,RtlHardcoded"/>
+
+            <Button
+                android:id="@+id/send_grade"
+                android:layout_marginLeft="30dp"
+                android:layout_gravity="end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Enviar"
+                style="@style/button.small"
+                tools:ignore="RtlHardcoded"/>
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

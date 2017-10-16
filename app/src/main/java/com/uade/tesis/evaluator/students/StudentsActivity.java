@@ -12,6 +12,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import com.uade.tesis.R;
+import com.uade.tesis.evaluator.AnswersActivity;
 import com.uade.tesis.evaluator.ResponseActivity;
 import com.uade.tesis.evaluator.utils.BaseButtonsAdapter;
 import java.util.ArrayList;
@@ -64,8 +65,7 @@ public class StudentsActivity extends AppCompatActivity implements BaseButtonsAd
 
     @Override
     public void onButtonClick(final String title) {
-        final Intent intent = ResponseActivity.getIntent(this, title,
-            "https://docs.google.com/forms/d/1VEivC8yX6w4BXWVgqRs_LRPVP4hHEd1h6kwxWZx6v7o/edit#response=ACYDBNgnTUoY2i_hb-48E_5qU6NvDO3C9KCzn7svXwtYJVeL7-WBDhlS3-_zdQ", true);
+        final Intent intent = AnswersActivity.getIntent(this, title);
         startActivity(intent);
     }
 }

@@ -33,7 +33,8 @@
             android:configChanges="orientation|screenSize"/>
 
         <activity android:name=".evaluator.assignments.AssignmentsActivity"/>
-        <activity android:name=".evaluator.students.StudentsActivity"/>
+        <activity android:name=".evaluator.students.StudentsActivity"
+            android:launchMode="singleInstance"/>
         <activity android:name=".evaluated.EvaluatedCongratsActivity"
                   android:launchMode="singleInstance"/>
         <activity android:name=".evaluated.EvaluatedMenuActivity"/>
@@ -41,6 +42,8 @@
         <activity android:name=".evaluator.ResponseActivity"
             android:configChanges="orientation|screenSize"/>
         <activity android:name=".evaluator.CreateAccountActivity"/>
+        <activity android:name=".evaluator.AnswersActivity"/>
+        <activity android:name=".evaluator.GradeActivity"/>
 
     </application>
 
