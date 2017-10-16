@@ -40,6 +40,7 @@
         <activity android:name=".evaluator.EvaluatorLogInActivity"/>
         <activity android:name=".evaluator.ResponseActivity"
             android:configChanges="orientation|screenSize"/>
+        <activity android:name=".evaluator.CreateAccountActivity"/>
 
     </application>
 

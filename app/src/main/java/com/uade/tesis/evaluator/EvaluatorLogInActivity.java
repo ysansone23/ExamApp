@@ -33,18 +33,27 @@ public class EvaluatorLogInActivity extends AppCompatActivity {
     private void setUpView() {
         user = (EditText) findViewById(R.id.log_in_user);
         password = (EditText) findViewById(R.id.log_in_password);
-        final Button button = (Button) findViewById(R.id.log_in_button);
+        final Button logIn = (Button) findViewById(R.id.log_in_button);
+        final Button createAccount = (Button) findViewById(R.id.create_account_button);
 
         user.setHint("Usuario");
         password.setHint("Contraseña");
 
-        button.setOnClickListener(new View.OnClickListener() {
+        logIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
                 if(canLogIn()) {
                     final Intent intent = new Intent(EvaluatorLogInActivity.this, AssignmentsActivity.class);
                     startActivity(intent);
                 }
+            }
+        });
+
+        createAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View v) {
+                final Intent intent = new Intent(EvaluatorLogInActivity.this, CreateAccountActivity.class);
+                startActivity(intent);
             }
         });
     }
