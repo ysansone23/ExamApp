@@ -39,6 +39,13 @@ public class StudentsActivity extends AppCompatActivity implements BaseButtonsAd
             supportActionBar.setTitle(getIntent().getStringExtra(TITLE));
         }
 
+        final Button exam = (Button) findViewById(R.id.exam);
+        exam.setText(getIntent().getStringExtra(TITLE));
+        exam.setVisibility(View.VISIBLE);
+
+        final View viewById = findViewById(R.id.action_divider);
+        viewById.setVisibility(View.VISIBLE);
+
         final RecyclerView recyclerView = (RecyclerView) findViewById(R.id.buttons_list);
         final LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
@@ -50,7 +57,6 @@ public class StudentsActivity extends AppCompatActivity implements BaseButtonsAd
         students.add("Martina Blanco");
         students.add("Leonardo Fuentes");
         students.add("Florencia Martinez");
-        students.add("Maria Regunega");
 
         final List<Button> buttons = new ArrayList<>();
         Button button;

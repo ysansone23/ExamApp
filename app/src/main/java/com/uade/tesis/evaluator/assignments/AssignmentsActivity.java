@@ -13,7 +13,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import com.uade.tesis.R;
-import com.uade.tesis.evaluator.ResponseActivity;
+import com.uade.tesis.evaluator.NewExamActivity;
 import com.uade.tesis.evaluator.students.StudentsActivity;
 import com.uade.tesis.evaluator.utils.BaseButtonsAdapter;
 import java.io.Serializable;
@@ -34,7 +34,7 @@ public class AssignmentsActivity extends AppCompatActivity implements BaseButton
 
         final ActionBar supportActionBar = getSupportActionBar();
         if (supportActionBar != null) {
-            supportActionBar.setTitle("Materias");
+            supportActionBar.setTitle("Exámenes");
         }
 
         recyclerView = (RecyclerView) findViewById(R.id.buttons_list);
@@ -43,10 +43,10 @@ public class AssignmentsActivity extends AppCompatActivity implements BaseButton
         recyclerView.setLayoutManager(layoutManager);
 
         if (savedInstanceState == null) {
-            assignments.add("Ingenieria de software");
-            assignments.add("Calidad de software");
-            assignments.add("Arquitectura de computadores");
-            assignments.add("Química");
+            assignments.add("Arq. de computadores - 1º parcial 2017");
+            assignments.add("Sistemas operativos - 2º parcial 2017");
+            assignments.add("Sistemas operativos - Final");
+            assignments.add("Teleinf. y redes II - 1º parcial 2017");
         } else {
             assignments = (List<String>) savedInstanceState.getSerializable(ASSIGNMENTS);
         }
@@ -80,8 +80,9 @@ public class AssignmentsActivity extends AppCompatActivity implements BaseButton
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
-                final Intent intent = ResponseActivity.getIntent(AssignmentsActivity.this, "Nuevo Examen",
-                    "https://docs.google.com/forms/u/0/", false);
+                //TODO agregar siguiente, tiempo, finalizar, mostrar qr
+                final Intent intent = NewExamActivity.getIntent(AssignmentsActivity.this, "Nuevo Examen",
+                    "http://google.com");
                 startActivityForResult(intent, NEW_ASSIGNMENT);
             }
         });

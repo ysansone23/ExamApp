@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:padding="@dimen/pfi_24dp">
+
+    <TextView
+        android:paddingTop="60dp"
+        android:id="@+id/exam_duration_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/text.subtitle"
+        android:text="Ingrese duración del examen:"/>
+
+    <EditText
+        android:layout_marginStart="@dimen/pfi_10dp"
+        android:id="@+id/exam_duration"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        style="@style/text.subtitle"
+        android:inputType="number"
+        tools:ignore="LabelFor"/>
+
+    <TextView
+        android:id="@+id/exam_duration_hours"
+        android:text="horas."
+        style="@style/text.subtitle"
+        android:layout_marginStart="@dimen/pfi_10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <ImageView
+        android:id="@+id/exam_duration_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:contentDescription="@null"/>
+
+</LinearLayout>

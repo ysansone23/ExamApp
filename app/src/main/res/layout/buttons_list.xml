@@ -1,15 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:gravity="center"
-              android:padding="@dimen/pfi_20dp"
-              android:orientation="vertical">
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/pfi_20dp">
+
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/exam"
+        style="@style/button.stroke"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="8dp" android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent" android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <View
+        android:id="@+id/action_divider"
+        style="@style/divider"
+        android:layout_marginTop="10dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@+id/exam"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/buttons_list"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/action_divider"/>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/buttons_list_fab"
@@ -18,6 +40,9 @@
         android:backgroundTint="@color/color_secondary"
         android:layout_margin="10dp"
         android:src="@drawable/icon_fab_add"
-        android:layout_gravity="bottom|end"/>
+        android:layout_gravity="bottom|end"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp"/>
 
-</FrameLayout>
+</android.support.constraint.ConstraintLayout>

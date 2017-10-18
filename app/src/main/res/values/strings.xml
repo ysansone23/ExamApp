@@ -18,7 +18,7 @@
     <!--Dialog-->
     <string name="action_accept">Aceptar</string>
     <string name="welcome_title">¡Atención!</string>
-    <string name="welcome_body">Si usted cambia de aplicación, el evaluador será notificado</string>
+    <string name="welcome_body">Si usted cambia de aplicación, el examen será enviado automáticamente</string>
 
     <!--Congrats-->
     <string name="congrats_title">Enviado</string>

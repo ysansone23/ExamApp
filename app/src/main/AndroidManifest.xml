@@ -44,6 +44,9 @@
         <activity android:name=".evaluator.CreateAccountActivity"/>
         <activity android:name=".evaluator.AnswersActivity"/>
         <activity android:name=".evaluator.GradeActivity"/>
+        <activity android:name=".evaluator.NewExamActivity"
+            android:configChanges="orientation|screenSize"/>
+        <activity android:name=".evaluator.SetExamDurationActivity"/>
 
     </application>
 
