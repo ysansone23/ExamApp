@@ -53,7 +53,7 @@ public class EvaluatedMenuActivity extends AppCompatActivity {
 
     public void startWebView(final View view) {
         final Intent webView = ExamWebViewActivity.getIntent(this,
-            "https://docs.google.com/forms/d/e/1FAIpQLSdP8KPtEZVW9R6blaCel80Y0jvLQ9G8qfIVImSrWbREtgTuGg/viewform?usp=sf_link");
+            "https://docs.google.com/forms/d/e/1FAIpQLSfTg9BUOHhiS1pkOB_pa-ZsnJo3qMbfaMxKT80niz2CyoHw4w/viewform");
         startActivity(webView);
     }
 }

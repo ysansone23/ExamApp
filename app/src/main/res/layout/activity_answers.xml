@@ -14,14 +14,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/text.subtitle"
-            android:text="¿Qué es una métrica?"/>
+            android:text="¿Cuáles son las técnicas de dispersión dinámica?"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/text.description"
             android:layout_marginTop="15dp"
-            android:text="medida o conjunto de medidas destinadas a conocer o estimar el tamaño u otra característica de un software o un sistema de información"/>
+            android:text="Las técnicas de dispersión dinámica son: Dispersión DINAMICA, dispersión EXTENSIBLE y dispersión LINEAL."/>
 
         <EditText
             android:layout_width="match_parent"
@@ -37,14 +37,14 @@
             android:layout_height="wrap_content"
             style="@style/text.subtitle"
             android:layout_marginTop="@dimen/pfi_20dp"
-            android:text="¿Cuál es la diferencia entre validación y verificación?"/>
+            android:text="Explicar dispersión interna y externa junto con sus ventajas y desventajas."/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/text.description"
             android:layout_marginTop="15dp"
-            android:text="verificacion busca comprobar que el sistema cumple con los requerimientos especificados validacion busca comprobar que el software hace lo que el usuario espera"/>
+            android:text="Interna:  se utiliza para dispersión en archivos internos  y se implementa con un arreglo de registros. La desventaja de este método es que  produce colisiones, las cuales son controladas mediante una tabla de dispersión (ocupada entre el 70% y el 90%). Externa: se basa en el almacenamiento de archivos en disco. Se emplea mediante cubetas. La ventaja de este método es que no se originan tantos problemas de colisiones como en la dispersión interna, ya que aquí se aplica el método de cubetas mediante desborde."/>
 
         <EditText
             android:layout_width="match_parent"
@@ -59,14 +59,14 @@
             android:layout_height="wrap_content"
             style="@style/text.subtitle"
             android:layout_marginTop="@dimen/pfi_20dp"
-            android:text="Nombre componentes de las métricas"/>
+            android:text="Un administrador de base de datos:"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/text.description"
             android:layout_marginTop="15dp"
-            android:text="Fiabilidad, eficiencia, integridad"/>
+            android:text="Es quien implementa las políticas definidas por el administrador de datos"/>
 
         <EditText
             android:layout_width="match_parent"
@@ -81,14 +81,15 @@
             android:layout_height="wrap_content"
             style="@style/text.subtitle"
             android:layout_marginTop="@dimen/pfi_20dp"
-            android:text="Explique que interviene en la mejora de procesos"/>
+            android:text="Definir independencia lógica y física"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/text.description"
             android:layout_marginTop="15dp"
-            android:text="No tiene respuesta"/>
+            android:text="Independencia física: permite que se almacenen los datos independientemente de la forma lógica en que serán presentados.
+ Independencia lógica: permite que las aplicaciones puedan obtener la información de diferentes formas, sin importar como se encuentren almacenados."/>
 
         <EditText
             android:layout_width="match_parent"

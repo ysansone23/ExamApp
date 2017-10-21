@@ -16,9 +16,12 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.uade.tesis.R;
 import com.uade.tesis.commons.utils.ThesisDialog;
+import com.uade.tesis.evaluated.model.DialogEvent;
 import com.uade.tesis.evaluated.utils.EvaluatedErrorView;
 import com.uade.tesis.evaluated.utils.EvaluatedTimer;
 import com.uade.tesis.evaluated.utils.EvaluatedWebViewClient;
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
 
 public class ExamWebViewActivity extends AppCompatActivity {
 
@@ -113,7 +116,7 @@ public class ExamWebViewActivity extends AppCompatActivity {
             webView.goBack();
         } else if(goBack) {
             final ThesisDialog dialog = new ThesisDialog(ExamWebViewActivity.this);
-            dialog.setUpView("¡Estas por salir!", "Si salis de la aplicacion el examen será enviado");
+            dialog.setUpView("¡Estas por salir!", "Si salis de la aplicacion el examen será enviado", false);
             dialog.show();
             goBack = false;
         } else {
@@ -219,6 +222,7 @@ public class ExamWebViewActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+        EventBus.getDefault().register(this);
         if (userLeft) {
             final ThesisDialog dialog = new ThesisDialog(this);
             dialog.setUpView("Tu examen fue enviado", "Tu examen fue enviado por haber salido de la aplicación",
@@ -227,8 +231,19 @@ public class ExamWebViewActivity extends AppCompatActivity {
                     public void onClick(final View v) {
                         finish();
                     }
-                });
+                }, true);
             dialog.show();
         }
+    }
+
+    @Override
+    protected void onStop() {
+        EventBus.getDefault().unregister(this);
+        super.onStop();
+    }
+
+    @Subscribe
+    public void onEvent(final DialogEvent event) {
+        finish();
     }
 }

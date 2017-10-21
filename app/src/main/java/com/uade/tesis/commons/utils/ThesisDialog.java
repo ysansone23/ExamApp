@@ -35,11 +35,12 @@ public class ThesisDialog extends Dialog {
         setContentView(R.layout.thesis_dialog);
     }
 
-    public void setUpView(final String titleText, final String subtitleText) {
-        setUpView(titleText, subtitleText, null);
+    public void setUpView(final String titleText, final String subtitleText, final boolean shouldFinish) {
+        setUpView(titleText, subtitleText, null, shouldFinish);
     }
 
-    public void setUpView(final String titleText, final String subtitleText, @Nullable View.OnClickListener listener) {
+    public void setUpView(final String titleText, final String subtitleText,
+        @Nullable View.OnClickListener listener, final boolean shouldFinish) {
 
         final TextView title = (TextView) findViewById(R.id.thesis_dialog_title);
         final TextView subtitle = (TextView) findViewById(R.id.thesis_dialog_subtitle);
@@ -48,7 +49,7 @@ public class ThesisDialog extends Dialog {
         title.setText(titleText);
         subtitle.setText(subtitleText);
         accept.setText("Aceptar");
-        
+
         if (listener == null) {
             listener = new View.OnClickListener() {
                 @Override
@@ -58,6 +59,16 @@ public class ThesisDialog extends Dialog {
             };
         }
         accept.setOnClickListener(listener);
+
+        if (shouldFinish) {
+            setOnDismissListener(new OnDismissListener() {
+                @Override
+                public void onDismiss(final DialogInterface dialog) {
+                    EventBus.getDefault().post(new DialogEvent());
+                }
+            });
+        }
+
     }
 
     public void setUpWelcomeDialog() {

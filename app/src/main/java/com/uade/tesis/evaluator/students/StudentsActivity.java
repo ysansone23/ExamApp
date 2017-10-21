@@ -42,6 +42,14 @@ public class StudentsActivity extends AppCompatActivity implements BaseButtonsAd
         final Button exam = (Button) findViewById(R.id.exam);
         exam.setText(getIntent().getStringExtra(TITLE));
         exam.setVisibility(View.VISIBLE);
+        exam.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View v) {
+                final Intent intent = ResponseActivity.getIntent(StudentsActivity.this, String.valueOf(exam.getText()),
+                    "https://docs.google.com/forms/d/1MKp9fYsNm6gHR8owgf20pOtyCdAxnQ1F04yjTWA6Vh8/edit?uiv=0", false);
+                startActivity(intent);
+            }
+        });
 
         final View viewById = findViewById(R.id.action_divider);
         viewById.setVisibility(View.VISIBLE);
@@ -61,6 +69,7 @@ public class StudentsActivity extends AppCompatActivity implements BaseButtonsAd
         final List<Button> buttons = new ArrayList<>();
         Button button;
         for (int i = 0; i < students.size(); i++) {
+
             button = new Button(this);
             button.setText(students.get(i));
             button.setVisibility(View.INVISIBLE);

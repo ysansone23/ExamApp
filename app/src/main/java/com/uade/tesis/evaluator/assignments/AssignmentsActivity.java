@@ -43,7 +43,7 @@ public class AssignmentsActivity extends AppCompatActivity implements BaseButton
         recyclerView.setLayoutManager(layoutManager);
 
         if (savedInstanceState == null) {
-            assignments.add("Arq. de computadores - 1º parcial 2017");
+            assignments.add("Base de datos I - 1º parcial 2017");
             assignments.add("Sistemas operativos - 2º parcial 2017");
             assignments.add("Sistemas operativos - Final");
             assignments.add("Teleinf. y redes II - 1º parcial 2017");
@@ -80,9 +80,8 @@ public class AssignmentsActivity extends AppCompatActivity implements BaseButton
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
-                //TODO agregar siguiente, tiempo, finalizar, mostrar qr
                 final Intent intent = NewExamActivity.getIntent(AssignmentsActivity.this, "Nuevo Examen",
-                    "http://google.com");
+                    "https://docs.google.com/forms/");
                 startActivityForResult(intent, NEW_ASSIGNMENT);
             }
         });

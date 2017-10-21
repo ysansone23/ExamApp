@@ -16,6 +16,10 @@ public class AssignmentsViewHolder extends RecyclerView.ViewHolder {
 
     public void bindToElement(final Button button, final BaseButtonsAdapter.ButtonClickListener listener) {
         final String title = button.getText().toString();
+        //if (position == 0) {
+        //  this.button.setBackground(
+        //  button.getResources().getDrawable(R.drawable.stroke_button_shape_dark, button.getContext().getTheme()));
+        //}
         this.button.setText(title);
         this.button.setOnClickListener(new View.OnClickListener() {
             @Override

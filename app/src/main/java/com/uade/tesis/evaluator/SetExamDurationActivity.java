@@ -2,10 +2,12 @@ package com.uade.tesis.evaluator;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import com.uade.tesis.R;
 
@@ -18,6 +20,13 @@ public class SetExamDurationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_set_exam_duration);
 
         findViewById(R.id.exam_duration).setFocusable(true);
+
+        final ActionBar supportActionBar = getSupportActionBar();
+        if (supportActionBar != null) {
+            supportActionBar.setTitle("Nuevo Examen");
+        }
+
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
     }
 
     @Override
@@ -37,6 +46,7 @@ public class SetExamDurationActivity extends AppCompatActivity {
                 findViewById(R.id.exam_duration_label).setVisibility(View.GONE);
                 findViewById(R.id.exam_duration).setVisibility(View.GONE);
                 findViewById(R.id.exam_duration_hours).setVisibility(View.GONE);
+
                 final ImageView image = (ImageView) findViewById(R.id.exam_duration_image);
                 image.setImageDrawable(getResources().getDrawable(R.drawable.qr_code, getTheme()));
                 image.setVisibility(View.VISIBLE);
