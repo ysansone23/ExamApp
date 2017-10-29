@@ -159,12 +159,6 @@ public class ExamWebViewActivity extends AppCompatActivity {
         }
     }
 
-    private void showCongrats() {
-        startActivity(EvaluatedCongratsActivity.getIntent(ExamWebViewActivity.this, "¡Tu examen fue enviado!",
-            "Por consultas dirigite a tu profesor"));
-        finish();
-    }
-
     private EvaluatedWebViewClient.WebViewActions getEvaluatedWebViewActions() {
        return new EvaluatedWebViewClient.WebViewActions() {
             @Override
@@ -176,6 +170,7 @@ public class ExamWebViewActivity extends AppCompatActivity {
             @Override
             public void onReceivedError(final boolean isNetworkingError) {
                 showErrorScreen(isNetworkingError);
+                timerText.setVisible(false);
                 hasError = true;
             }
 
@@ -202,9 +197,16 @@ public class ExamWebViewActivity extends AppCompatActivity {
 
             @Override
             public void sendAnswer() {
-                showCongrats();
+                sendExam();
             }
-        };
+
+           @Override
+           public void showCongrats() {
+               startActivity(EvaluatedCongratsActivity.getIntent(ExamWebViewActivity.this, "¡Tu examen fue enviado!",
+                   "Por consultas dirigite a tu profesor"));
+               finish();
+           }
+       };
     }
 
     private void sendExam() {

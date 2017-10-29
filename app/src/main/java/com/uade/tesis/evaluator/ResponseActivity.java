@@ -122,6 +122,11 @@ public class ResponseActivity extends AppCompatActivity {
             public void sendAnswer() {
                 //nothing
             }
+
+            @Override
+            public void showCongrats() {
+                //nothing
+            }
         };
     }
 

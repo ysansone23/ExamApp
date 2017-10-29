@@ -34,6 +34,9 @@ public class EvaluatedWebViewClient extends android.webkit.WebViewClient {
         animate(view);
         view.setVisibility(View.VISIBLE);
         actions.onPageFinished();
+        if (url.contains("formResponse")) {
+            actions.showCongrats();
+        }
 
         super.onPageFinished(view, url);
     }
@@ -77,5 +80,7 @@ public class EvaluatedWebViewClient extends android.webkit.WebViewClient {
         void onPageFinished();
 
         void sendAnswer();
+
+        void showCongrats();
     }
 }

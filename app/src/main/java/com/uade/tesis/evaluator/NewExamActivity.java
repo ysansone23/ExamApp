@@ -98,6 +98,11 @@ public class NewExamActivity extends AppCompatActivity {
             public void sendAnswer() {
                 //nothing
             }
+
+            @Override
+            public void showCongrats() {
+                //nothing
+            }
         };
     }
 
