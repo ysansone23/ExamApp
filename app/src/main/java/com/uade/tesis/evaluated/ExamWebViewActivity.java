@@ -114,13 +114,14 @@ public class ExamWebViewActivity extends AppCompatActivity {
     public void onBackPressed() {
         if (webView.canGoBack()) {
             webView.goBack();
-        } else if(goBack) {
+        } else if (goBack) {
             final ThesisDialog dialog = new ThesisDialog(ExamWebViewActivity.this);
             dialog.setUpView("¡Estas por salir!", "Si salis de la aplicacion el examen será enviado", false);
             dialog.show();
             goBack = false;
         } else {
             sendExam();
+            showCongratsScreen();
             super.onBackPressed();
         }
     }
@@ -188,7 +189,6 @@ public class ExamWebViewActivity extends AppCompatActivity {
                             public void onFinish() {
                                 if (FINISH_TIME.equals(timerText.getTitle())) {
                                     sendExam();
-                                    showCongrats();
                                 }
                             }
                         }).start();
@@ -202,11 +202,17 @@ public class ExamWebViewActivity extends AppCompatActivity {
 
            @Override
            public void showCongrats() {
-               startActivity(EvaluatedCongratsActivity.getIntent(ExamWebViewActivity.this, "¡Tu examen fue enviado!",
-                   "Por consultas dirigite a tu profesor"));
-               finish();
+               if (!userLeft) {
+                   showCongratsScreen();
+               }
            }
        };
+    }
+
+    private void showCongratsScreen() {
+        startActivity(EvaluatedCongratsActivity.getIntent(ExamWebViewActivity.this, "¡Tu examen fue enviado!",
+            "Por consultas dirigite a tu profesor"));
+        finish();
     }
 
     private void sendExam() {
