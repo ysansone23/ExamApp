@@ -232,6 +232,7 @@ public class ExamWebViewActivity extends AppCompatActivity {
         super.onStart();
         EventBus.getDefault().register(this);
         if (userLeft) {
+            timerText.setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
             final ThesisDialog dialog = new ThesisDialog(this);
             dialog.setUpView("Tu examen fue enviado", "Tu examen fue enviado por haber salido de la aplicación",
                 new View.OnClickListener() {
